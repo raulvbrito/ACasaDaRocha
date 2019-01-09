@@ -1,0 +1,895 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		416AFEDE21B85E1C00F9E8B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416AFEDD21B85E1C00F9E8B6 /* AppDelegate.swift */; };
+		416AFEE021B85E1C00F9E8B6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416AFEDF21B85E1C00F9E8B6 /* HomeViewController.swift */; };
+		416AFEE321B85E1C00F9E8B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 416AFEE121B85E1C00F9E8B6 /* Main.storyboard */; };
+		416AFEE621B85E1C00F9E8B6 /* A_Casa_da_Rocha.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 416AFEE421B85E1C00F9E8B6 /* A_Casa_da_Rocha.xcdatamodeld */; };
+		416AFEE821B85E1E00F9E8B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 416AFEE721B85E1E00F9E8B6 /* Assets.xcassets */; };
+		416AFEEB21B85E1E00F9E8B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 416AFEE921B85E1E00F9E8B6 /* LaunchScreen.storyboard */; };
+		416AFEF621B85E1E00F9E8B6 /* A_Casa_da_RochaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416AFEF521B85E1E00F9E8B6 /* A_Casa_da_RochaTests.swift */; };
+		416AFF0121B85E1E00F9E8B6 /* A_Casa_da_RochaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416AFF0021B85E1E00F9E8B6 /* A_Casa_da_RochaUITests.swift */; };
+		416AFF1921B87EB000F9E8B6 /* IntroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416AFF1821B87EB000F9E8B6 /* IntroTableViewCell.swift */; };
+		417C0D7C21E544DA004162B8 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417C0D7B21E544DA004162B8 /* Track.swift */; };
+		41C7396321BF28A40069C80C /* SectionTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C7396221BF28A40069C80C /* SectionTitleTableViewCell.swift */; };
+		41C7396621BF35010069C80C /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C7396521BF35010069C80C /* BaseService.swift */; };
+		41C7396821BF36530069C80C /* TracksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C7396721BF36530069C80C /* TracksService.swift */; };
+		41C7396C21C024980069C80C /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C7396B21C024970069C80C /* SpotifyiOS.framework */; };
+		7E459A13FB6CCF4E2AD60BC6 /* Pods_A_Casa_da_Rocha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C37F7E19A494400A144DE7 /* Pods_A_Casa_da_Rocha.framework */; };
+		94F5DEE5E0A2A2F377B3D03C /* Pods_A_Casa_da_RochaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E310131F323FE31E0A6CD313 /* Pods_A_Casa_da_RochaUITests.framework */; };
+		EB537C98CC5580CE153DB2AB /* Pods_A_Casa_da_RochaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0555E454EF8315388CACE1F9 /* Pods_A_Casa_da_RochaTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		416AFEF221B85E1E00F9E8B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 416AFED221B85E1C00F9E8B6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 416AFED921B85E1C00F9E8B6;
+			remoteInfo = "A Casa da Rocha";
+		};
+		416AFEFD21B85E1E00F9E8B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 416AFED221B85E1C00F9E8B6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 416AFED921B85E1C00F9E8B6;
+			remoteInfo = "A Casa da Rocha";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0555E454EF8315388CACE1F9 /* Pods_A_Casa_da_RochaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_A_Casa_da_RochaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		298A2EBB1A5BF3AC0A1C863D /* Pods-A Casa da Rocha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Casa da Rocha.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A Casa da Rocha/Pods-A Casa da Rocha.debug.xcconfig"; sourceTree = "<group>"; };
+		2D12DF1CCD188836FE24AE68 /* Pods-A Casa da RochaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Casa da RochaUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-A Casa da RochaUITests/Pods-A Casa da RochaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		416AFEDA21B85E1C00F9E8B6 /* A Casa da Rocha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "A Casa da Rocha.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		416AFEDD21B85E1C00F9E8B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		416AFEDF21B85E1C00F9E8B6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		416AFEE221B85E1C00F9E8B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		416AFEE521B85E1C00F9E8B6 /* A_Casa_da_Rocha.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = A_Casa_da_Rocha.xcdatamodel; sourceTree = "<group>"; };
+		416AFEE721B85E1E00F9E8B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		416AFEEA21B85E1E00F9E8B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		416AFEEC21B85E1E00F9E8B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		416AFEF121B85E1E00F9E8B6 /* A Casa da RochaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "A Casa da RochaTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		416AFEF521B85E1E00F9E8B6 /* A_Casa_da_RochaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A_Casa_da_RochaTests.swift; sourceTree = "<group>"; };
+		416AFEF721B85E1E00F9E8B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		416AFEFC21B85E1E00F9E8B6 /* A Casa da RochaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "A Casa da RochaUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		416AFF0021B85E1E00F9E8B6 /* A_Casa_da_RochaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A_Casa_da_RochaUITests.swift; sourceTree = "<group>"; };
+		416AFF0221B85E1E00F9E8B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		416AFF1821B87EB000F9E8B6 /* IntroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroTableViewCell.swift; sourceTree = "<group>"; };
+		417C0D7B21E544DA004162B8 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		41C7396221BF28A40069C80C /* SectionTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleTableViewCell.swift; sourceTree = "<group>"; };
+		41C7396521BF35010069C80C /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		41C7396721BF36530069C80C /* TracksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksService.swift; sourceTree = "<group>"; };
+		41C7396B21C024970069C80C /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
+		41C7396D21C02ACA0069C80C /* A_Casa_da_Rocha-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "A_Casa_da_Rocha-Bridging-Header.h"; sourceTree = "<group>"; };
+		4F7CF377FE2ACCE5656BC70A /* Pods-A Casa da RochaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Casa da RochaUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A Casa da RochaUITests/Pods-A Casa da RochaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CB40D306E1A3489AE611EC43 /* Pods-A Casa da Rocha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Casa da Rocha.release.xcconfig"; path = "Pods/Target Support Files/Pods-A Casa da Rocha/Pods-A Casa da Rocha.release.xcconfig"; sourceTree = "<group>"; };
+		D2C37F7E19A494400A144DE7 /* Pods_A_Casa_da_Rocha.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_A_Casa_da_Rocha.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E310131F323FE31E0A6CD313 /* Pods_A_Casa_da_RochaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_A_Casa_da_RochaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA6B5B4E0473C96C27659570 /* Pods-A Casa da RochaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Casa da RochaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-A Casa da RochaTests/Pods-A Casa da RochaTests.release.xcconfig"; sourceTree = "<group>"; };
+		FFD6C491C9D2505FFE319BEB /* Pods-A Casa da RochaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Casa da RochaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A Casa da RochaTests/Pods-A Casa da RochaTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		416AFED721B85E1C00F9E8B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E459A13FB6CCF4E2AD60BC6 /* Pods_A_Casa_da_Rocha.framework in Frameworks */,
+				41C7396C21C024980069C80C /* SpotifyiOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		416AFEEE21B85E1E00F9E8B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB537C98CC5580CE153DB2AB /* Pods_A_Casa_da_RochaTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		416AFEF921B85E1E00F9E8B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94F5DEE5E0A2A2F377B3D03C /* Pods_A_Casa_da_RochaUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		30A386F7BA0B8B66EF3A4046 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D2C37F7E19A494400A144DE7 /* Pods_A_Casa_da_Rocha.framework */,
+				0555E454EF8315388CACE1F9 /* Pods_A_Casa_da_RochaTests.framework */,
+				E310131F323FE31E0A6CD313 /* Pods_A_Casa_da_RochaUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		34EA1E964366C1C63D1058D6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				298A2EBB1A5BF3AC0A1C863D /* Pods-A Casa da Rocha.debug.xcconfig */,
+				CB40D306E1A3489AE611EC43 /* Pods-A Casa da Rocha.release.xcconfig */,
+				FFD6C491C9D2505FFE319BEB /* Pods-A Casa da RochaTests.debug.xcconfig */,
+				EA6B5B4E0473C96C27659570 /* Pods-A Casa da RochaTests.release.xcconfig */,
+				4F7CF377FE2ACCE5656BC70A /* Pods-A Casa da RochaUITests.debug.xcconfig */,
+				2D12DF1CCD188836FE24AE68 /* Pods-A Casa da RochaUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		416AFED121B85E1C00F9E8B6 = {
+			isa = PBXGroup;
+			children = (
+				416AFEDC21B85E1C00F9E8B6 /* A Casa da Rocha */,
+				416AFEF421B85E1E00F9E8B6 /* A Casa da RochaTests */,
+				416AFEFF21B85E1E00F9E8B6 /* A Casa da RochaUITests */,
+				416AFEDB21B85E1C00F9E8B6 /* Products */,
+				34EA1E964366C1C63D1058D6 /* Pods */,
+				30A386F7BA0B8B66EF3A4046 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		416AFEDB21B85E1C00F9E8B6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				416AFEDA21B85E1C00F9E8B6 /* A Casa da Rocha.app */,
+				416AFEF121B85E1E00F9E8B6 /* A Casa da RochaTests.xctest */,
+				416AFEFC21B85E1E00F9E8B6 /* A Casa da RochaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		416AFEDC21B85E1C00F9E8B6 /* A Casa da Rocha */ = {
+			isa = PBXGroup;
+			children = (
+				41C7396D21C02ACA0069C80C /* A_Casa_da_Rocha-Bridging-Header.h */,
+				416AFEE421B85E1C00F9E8B6 /* A_Casa_da_Rocha.xcdatamodeld */,
+				416AFEE721B85E1E00F9E8B6 /* Assets.xcassets */,
+				416AFEEC21B85E1E00F9E8B6 /* Info.plist */,
+				416AFF0E21B85E9600F9E8B6 /* Resources */,
+				416AFF0F21B85EA100F9E8B6 /* Sources */,
+				41C7396B21C024970069C80C /* SpotifyiOS.framework */,
+				416AFF1621B85EFE00F9E8B6 /* Storyboards */,
+				416AFF1721B85F1E00F9E8B6 /* Supporting Files */,
+			);
+			path = "A Casa da Rocha";
+			sourceTree = "<group>";
+		};
+		416AFEF421B85E1E00F9E8B6 /* A Casa da RochaTests */ = {
+			isa = PBXGroup;
+			children = (
+				416AFEF521B85E1E00F9E8B6 /* A_Casa_da_RochaTests.swift */,
+				416AFEF721B85E1E00F9E8B6 /* Info.plist */,
+			);
+			path = "A Casa da RochaTests";
+			sourceTree = "<group>";
+		};
+		416AFEFF21B85E1E00F9E8B6 /* A Casa da RochaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				416AFF0021B85E1E00F9E8B6 /* A_Casa_da_RochaUITests.swift */,
+				416AFF0221B85E1E00F9E8B6 /* Info.plist */,
+			);
+			path = "A Casa da RochaUITests";
+			sourceTree = "<group>";
+		};
+		416AFF0E21B85E9600F9E8B6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		416AFF0F21B85EA100F9E8B6 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				416AFF1021B85EB300F9E8B6 /* Data */,
+				41C7396421BF34E30069C80C /* Requests */,
+				416AFF1321B85ECF00F9E8B6 /* View Controllers */,
+				416AFF1421B85EDD00F9E8B6 /* Views */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		416AFF1021B85EB300F9E8B6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				416AFF1221B85EC500F9E8B6 /* Models */,
+				416AFF1121B85EBE00F9E8B6 /* Core Data */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		416AFF1121B85EBE00F9E8B6 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		416AFF1221B85EC500F9E8B6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				417C0D7B21E544DA004162B8 /* Track.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		416AFF1321B85ECF00F9E8B6 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				416AFEDF21B85E1C00F9E8B6 /* HomeViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		416AFF1421B85EDD00F9E8B6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				416AFF1521B85EE700F9E8B6 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		416AFF1521B85EE700F9E8B6 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				416AFF1821B87EB000F9E8B6 /* IntroTableViewCell.swift */,
+				41C7396221BF28A40069C80C /* SectionTitleTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		416AFF1621B85EFE00F9E8B6 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				416AFEE121B85E1C00F9E8B6 /* Main.storyboard */,
+				416AFEE921B85E1E00F9E8B6 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		416AFF1721B85F1E00F9E8B6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				416AFEDD21B85E1C00F9E8B6 /* AppDelegate.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		41C7396421BF34E30069C80C /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				41C7396521BF35010069C80C /* BaseService.swift */,
+				41C7396721BF36530069C80C /* TracksService.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		416AFED921B85E1C00F9E8B6 /* A Casa da Rocha */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 416AFF0521B85E1E00F9E8B6 /* Build configuration list for PBXNativeTarget "A Casa da Rocha" */;
+			buildPhases = (
+				2D2FE548D37BF46DB58FF9FF /* [CP] Check Pods Manifest.lock */,
+				416AFED621B85E1C00F9E8B6 /* Sources */,
+				416AFED721B85E1C00F9E8B6 /* Frameworks */,
+				416AFED821B85E1C00F9E8B6 /* Resources */,
+				4CF8417FECAB95BCA970BCF1 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "A Casa da Rocha";
+			productName = "A Casa da Rocha";
+			productReference = 416AFEDA21B85E1C00F9E8B6 /* A Casa da Rocha.app */;
+			productType = "com.apple.product-type.application";
+		};
+		416AFEF021B85E1E00F9E8B6 /* A Casa da RochaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 416AFF0821B85E1E00F9E8B6 /* Build configuration list for PBXNativeTarget "A Casa da RochaTests" */;
+			buildPhases = (
+				D04B1256C3A7B6AD02DAC5DB /* [CP] Check Pods Manifest.lock */,
+				416AFEED21B85E1E00F9E8B6 /* Sources */,
+				416AFEEE21B85E1E00F9E8B6 /* Frameworks */,
+				416AFEEF21B85E1E00F9E8B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				416AFEF321B85E1E00F9E8B6 /* PBXTargetDependency */,
+			);
+			name = "A Casa da RochaTests";
+			productName = "A Casa da RochaTests";
+			productReference = 416AFEF121B85E1E00F9E8B6 /* A Casa da RochaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		416AFEFB21B85E1E00F9E8B6 /* A Casa da RochaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 416AFF0B21B85E1E00F9E8B6 /* Build configuration list for PBXNativeTarget "A Casa da RochaUITests" */;
+			buildPhases = (
+				D1D5A6C35B68DD2531701219 /* [CP] Check Pods Manifest.lock */,
+				416AFEF821B85E1E00F9E8B6 /* Sources */,
+				416AFEF921B85E1E00F9E8B6 /* Frameworks */,
+				416AFEFA21B85E1E00F9E8B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				416AFEFE21B85E1E00F9E8B6 /* PBXTargetDependency */,
+			);
+			name = "A Casa da RochaUITests";
+			productName = "A Casa da RochaUITests";
+			productReference = 416AFEFC21B85E1E00F9E8B6 /* A Casa da RochaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		416AFED221B85E1C00F9E8B6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Raul Brito";
+				TargetAttributes = {
+					416AFED921B85E1C00F9E8B6 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					416AFEF021B85E1E00F9E8B6 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 416AFED921B85E1C00F9E8B6;
+					};
+					416AFEFB21B85E1E00F9E8B6 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 416AFED921B85E1C00F9E8B6;
+					};
+				};
+			};
+			buildConfigurationList = 416AFED521B85E1C00F9E8B6 /* Build configuration list for PBXProject "A Casa da Rocha" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 416AFED121B85E1C00F9E8B6;
+			productRefGroup = 416AFEDB21B85E1C00F9E8B6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				416AFED921B85E1C00F9E8B6 /* A Casa da Rocha */,
+				416AFEF021B85E1E00F9E8B6 /* A Casa da RochaTests */,
+				416AFEFB21B85E1E00F9E8B6 /* A Casa da RochaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		416AFED821B85E1C00F9E8B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				416AFEEB21B85E1E00F9E8B6 /* LaunchScreen.storyboard in Resources */,
+				416AFEE821B85E1E00F9E8B6 /* Assets.xcassets in Resources */,
+				416AFEE321B85E1C00F9E8B6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		416AFEEF21B85E1E00F9E8B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		416AFEFA21B85E1E00F9E8B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2D2FE548D37BF46DB58FF9FF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-A Casa da Rocha-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4CF8417FECAB95BCA970BCF1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-A Casa da Rocha/Pods-A Casa da Rocha-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AlamoRecord/AlamoRecord.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Spartan/Spartan.framework",
+				"${BUILT_PRODUCTS_DIR}/Tailor/Tailor.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamoRecord.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spartan.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Tailor.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-A Casa da Rocha/Pods-A Casa da Rocha-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D04B1256C3A7B6AD02DAC5DB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-A Casa da RochaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1D5A6C35B68DD2531701219 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-A Casa da RochaUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		416AFED621B85E1C00F9E8B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				416AFEE021B85E1C00F9E8B6 /* HomeViewController.swift in Sources */,
+				416AFEE621B85E1C00F9E8B6 /* A_Casa_da_Rocha.xcdatamodeld in Sources */,
+				41C7396621BF35010069C80C /* BaseService.swift in Sources */,
+				417C0D7C21E544DA004162B8 /* Track.swift in Sources */,
+				416AFF1921B87EB000F9E8B6 /* IntroTableViewCell.swift in Sources */,
+				41C7396321BF28A40069C80C /* SectionTitleTableViewCell.swift in Sources */,
+				416AFEDE21B85E1C00F9E8B6 /* AppDelegate.swift in Sources */,
+				41C7396821BF36530069C80C /* TracksService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		416AFEED21B85E1E00F9E8B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				416AFEF621B85E1E00F9E8B6 /* A_Casa_da_RochaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		416AFEF821B85E1E00F9E8B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				416AFF0121B85E1E00F9E8B6 /* A_Casa_da_RochaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		416AFEF321B85E1E00F9E8B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 416AFED921B85E1C00F9E8B6 /* A Casa da Rocha */;
+			targetProxy = 416AFEF221B85E1E00F9E8B6 /* PBXContainerItemProxy */;
+		};
+		416AFEFE21B85E1E00F9E8B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 416AFED921B85E1C00F9E8B6 /* A Casa da Rocha */;
+			targetProxy = 416AFEFD21B85E1E00F9E8B6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		416AFEE121B85E1C00F9E8B6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				416AFEE221B85E1C00F9E8B6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		416AFEE921B85E1E00F9E8B6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				416AFEEA21B85E1E00F9E8B6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		416AFF0321B85E1E00F9E8B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		416AFF0421B85E1E00F9E8B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		416AFF0621B85E1E00F9E8B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 298A2EBB1A5BF3AC0A1C863D /* Pods-A Casa da Rocha.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4QDFB98CYU;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/A\\ Casa\\ da\\ Rocha",
+				);
+				INFOPLIST_FILE = "A Casa da Rocha/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.raulvbrito.A-Casa-da-Rocha";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/raulvbrito/Projects/iOS/A Casa da Rocha/A Casa da Rocha/A_Casa_da_Rocha-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		416AFF0721B85E1E00F9E8B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB40D306E1A3489AE611EC43 /* Pods-A Casa da Rocha.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4QDFB98CYU;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/A\\ Casa\\ da\\ Rocha",
+				);
+				INFOPLIST_FILE = "A Casa da Rocha/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-ObjC",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.raulvbrito.A-Casa-da-Rocha";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/raulvbrito/Projects/iOS/A Casa da Rocha/A Casa da Rocha/A_Casa_da_Rocha-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		416AFF0921B85E1E00F9E8B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FFD6C491C9D2505FFE319BEB /* Pods-A Casa da RochaTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4QDFB98CYU;
+				INFOPLIST_FILE = "A Casa da RochaTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.raulvbrito.A-Casa-da-RochaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/A Casa da Rocha.app/A Casa da Rocha";
+			};
+			name = Debug;
+		};
+		416AFF0A21B85E1E00F9E8B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA6B5B4E0473C96C27659570 /* Pods-A Casa da RochaTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4QDFB98CYU;
+				INFOPLIST_FILE = "A Casa da RochaTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.raulvbrito.A-Casa-da-RochaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/A Casa da Rocha.app/A Casa da Rocha";
+			};
+			name = Release;
+		};
+		416AFF0C21B85E1E00F9E8B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F7CF377FE2ACCE5656BC70A /* Pods-A Casa da RochaUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4QDFB98CYU;
+				INFOPLIST_FILE = "A Casa da RochaUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.raulvbrito.A-Casa-da-RochaUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "A Casa da Rocha";
+			};
+			name = Debug;
+		};
+		416AFF0D21B85E1E00F9E8B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D12DF1CCD188836FE24AE68 /* Pods-A Casa da RochaUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4QDFB98CYU;
+				INFOPLIST_FILE = "A Casa da RochaUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.raulvbrito.A-Casa-da-RochaUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "A Casa da Rocha";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		416AFED521B85E1C00F9E8B6 /* Build configuration list for PBXProject "A Casa da Rocha" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				416AFF0321B85E1E00F9E8B6 /* Debug */,
+				416AFF0421B85E1E00F9E8B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		416AFF0521B85E1E00F9E8B6 /* Build configuration list for PBXNativeTarget "A Casa da Rocha" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				416AFF0621B85E1E00F9E8B6 /* Debug */,
+				416AFF0721B85E1E00F9E8B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		416AFF0821B85E1E00F9E8B6 /* Build configuration list for PBXNativeTarget "A Casa da RochaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				416AFF0921B85E1E00F9E8B6 /* Debug */,
+				416AFF0A21B85E1E00F9E8B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		416AFF0B21B85E1E00F9E8B6 /* Build configuration list for PBXNativeTarget "A Casa da RochaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				416AFF0C21B85E1E00F9E8B6 /* Debug */,
+				416AFF0D21B85E1E00F9E8B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		416AFEE421B85E1C00F9E8B6 /* A_Casa_da_Rocha.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				416AFEE521B85E1C00F9E8B6 /* A_Casa_da_Rocha.xcdatamodel */,
+			);
+			currentVersion = 416AFEE521B85E1C00F9E8B6 /* A_Casa_da_Rocha.xcdatamodel */;
+			path = A_Casa_da_Rocha.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 416AFED221B85E1C00F9E8B6 /* Project object */;
+}

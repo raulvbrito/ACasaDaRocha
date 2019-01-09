@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5nM-qm-LqW">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Artigos-->
+        <scene sceneID="L2j-fi-mI3">
+            <objects>
+                <viewController id="AhB-20-c1U" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Ki-6P-g2h">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="abQ-Mr-eiX"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Artigos" id="FW5-Ax-KxR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hbc-kO-W2o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="407" y="-1414"/>
+        </scene>
+        <!--Unidades-->
+        <scene sceneID="vNV-4S-Maa">
+            <objects>
+                <viewController id="RfF-T0-gXR" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G6M-bZ-88m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="UMp-ln-mDN"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Unidades" id="PWc-Ge-Nun"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y0a-cR-sss" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="404" y="-2067"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Bi1-mH-kaP">
+            <objects>
+                <tabBarController id="5nM-qm-LqW" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gNG-ye-O6z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.80000000000000004" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.80000000000000004" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
+                            <integer key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="RfF-T0-gXR" kind="relationship" relationship="viewControllers" id="KvQ-f1-AcE"/>
+                        <segue destination="AhB-20-c1U" kind="relationship" relationship="viewControllers" id="SBF-CG-MQ6"/>
+                        <segue destination="Y6k-84-yWJ" kind="relationship" relationship="viewControllers" id="M3x-Mz-QBz"/>
+                        <segue destination="mnR-ib-RLE" kind="relationship" relationship="viewControllers" id="7XW-Cf-bTV"/>
+                        <segue destination="CH0-LC-nnF" kind="relationship" relationship="viewControllers" id="qGj-aK-IDt"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="91n-1J-kZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-889" y="-748"/>
+        </scene>
+        <!--A Casa-->
+        <scene sceneID="4sO-2z-9ay">
+            <objects>
+                <navigationController id="Y6k-84-yWJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="A Casa" image="home_icon" selectedImage="home_icon_selected" id="Tox-ue-K6S">
+                        <color key="badgeColor" red="0.80000000000000004" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oeD-H5-DR4">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="SCm-kT-mGp" kind="relationship" relationship="rootViewController" id="c3n-Nh-Bnx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1eU-zC-df5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="404" y="-749"/>
+        </scene>
+        <!--A Casa da Rocha-->
+        <scene sceneID="SHs-Dx-1tS">
+            <objects>
+                <viewController id="SCm-kT-mGp" customClass="HomeViewController" customModule="A_Casa_da_Rocha" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MR0-cU-1J0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CYc-u1-X5y">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IntroTableViewCell" rowHeight="230" id="hqa-AV-heN" customClass="IntroTableViewCell" customModule="A_Casa_da_Rocha" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="230"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hqa-AV-heN" id="EFN-kr-PYV">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W50-VK-WtS">
+                                                    <rect key="frame" x="16" y="6" width="343" height="218"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dark_logo" translatesAutoresizingMaskIntoConstraints="NO" id="UAg-Sg-g4Q">
+                                                            <rect key="frame" x="133" y="58" width="300" height="150"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="150" id="2Fd-0t-l0z"/>
+                                                                <constraint firstAttribute="width" constant="300" id="4pl-4k-UHT"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bem-vindo à Casa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1VK-gf-zvW">
+                                                            <rect key="frame" x="14" y="13.999999999999998" width="220.66666666666666" height="31.333333333333329"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Próximos eventos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8N8-mA-79c">
+                                                            <rect key="frame" x="14" y="45.333333333333336" width="114" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="UAg-Sg-g4Q" secondAttribute="trailing" constant="-90" id="BPX-bP-vXa"/>
+                                                        <constraint firstItem="8N8-mA-79c" firstAttribute="top" secondItem="1VK-gf-zvW" secondAttribute="bottom" id="EcG-Iw-8TE"/>
+                                                        <constraint firstItem="1VK-gf-zvW" firstAttribute="top" secondItem="W50-VK-WtS" secondAttribute="top" constant="14" id="MBX-hg-qfI"/>
+                                                        <constraint firstItem="1VK-gf-zvW" firstAttribute="leading" secondItem="W50-VK-WtS" secondAttribute="leading" constant="14" id="frN-fV-fpC"/>
+                                                        <constraint firstItem="8N8-mA-79c" firstAttribute="leading" secondItem="1VK-gf-zvW" secondAttribute="leading" id="gHy-Th-1yS"/>
+                                                        <constraint firstAttribute="bottom" secondItem="UAg-Sg-g4Q" secondAttribute="bottom" constant="10" id="p80-T4-b7c"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="12"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="W50-VK-WtS" firstAttribute="top" secondItem="EFN-kr-PYV" secondAttribute="top" constant="6" id="NPK-OS-mqL"/>
+                                                <constraint firstItem="W50-VK-WtS" firstAttribute="centerY" secondItem="EFN-kr-PYV" secondAttribute="centerY" id="mdC-ZZ-Ajm"/>
+                                                <constraint firstItem="W50-VK-WtS" firstAttribute="centerX" secondItem="EFN-kr-PYV" secondAttribute="centerX" id="peL-zV-zzY"/>
+                                                <constraint firstItem="W50-VK-WtS" firstAttribute="leading" secondItem="EFN-kr-PYV" secondAttribute="leading" constant="16" id="sTo-I9-YHh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SectionTitleTableViewCell" rowHeight="60" id="3F7-b5-nym" customClass="SectionTitleTableViewCell" customModule="A_Casa_da_Rocha" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="258" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3F7-b5-nym" id="s9H-9C-L4N">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Últimas Mensagens" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btL-Dh-yKj">
+                                                    <rect key="frame" x="15" y="25" width="203.33333333333334" height="26.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="btL-Dh-yKj" secondAttribute="bottom" constant="8.6699999999999999" id="48h-bH-Zr0"/>
+                                                <constraint firstItem="btL-Dh-yKj" firstAttribute="leading" secondItem="s9H-9C-L4N" secondAttribute="leadingMargin" id="L57-Ic-UcH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="btL-Dh-yKj" id="SpB-ov-5Um"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="SCm-kT-mGp" id="Ail-i7-7zs"/>
+                                    <outlet property="delegate" destination="SCm-kT-mGp" id="ON7-8p-0Yp"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="CYc-u1-X5y" firstAttribute="top" secondItem="MR0-cU-1J0" secondAttribute="top" id="06H-bV-B4F"/>
+                            <constraint firstAttribute="bottom" secondItem="CYc-u1-X5y" secondAttribute="bottom" id="9dW-mq-dSg"/>
+                            <constraint firstItem="KGq-cU-GOk" firstAttribute="trailing" secondItem="CYc-u1-X5y" secondAttribute="trailing" id="cBP-6y-OHk"/>
+                            <constraint firstItem="CYc-u1-X5y" firstAttribute="leading" secondItem="KGq-cU-GOk" secondAttribute="leading" id="t9w-mM-LBl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KGq-cU-GOk"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="A Casa da Rocha" id="WsE-J2-Ofe"/>
+                    <connections>
+                        <outlet property="tableView" destination="CYc-u1-X5y" id="hmg-dk-3Xg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ckw-g8-6I1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1397.5999999999999" y="-749.26108374384239"/>
+        </scene>
+        <!--Novidades-->
+        <scene sceneID="BIZ-S7-iCz">
+            <objects>
+                <viewController id="mnR-ib-RLE" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sct-CX-fa7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="zd1-rm-GIs"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Novidades" id="9gu-h5-z3J"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sca-Zh-PrG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="404" y="-86"/>
+        </scene>
+        <!--Ofertas-->
+        <scene sceneID="SpI-0M-1VW">
+            <objects>
+                <viewController id="CH0-LC-nnF" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WsT-rt-7Ha">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="DC8-st-uYS"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Ofertas" id="QLk-z6-1jS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hHd-RN-KR8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="407" y="570"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="dark_logo" width="1280" height="720"/>
+        <image name="home_icon" width="56.25" height="56.25"/>
+        <image name="home_icon_selected" width="56.25" height="56.25"/>
+    </resources>
+</document>

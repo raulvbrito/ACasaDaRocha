@@ -1,0 +1,6 @@
+framework module Pods_A_Casa_da_RochaUITests {
+  umbrella header "Pods-A Casa da RochaUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
