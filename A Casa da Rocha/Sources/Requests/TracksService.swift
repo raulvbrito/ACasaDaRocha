@@ -14,7 +14,7 @@ class TracksService: BaseService {
 	
     // MARK: - API Endpoints
 	
-    static let Tracks = "v1/shows/0eFOL5pJ1QW4sR7OMcn5GX/episodes?offset=0&limit=50"
+    static let Tracks = "v1/shows/0eFOL5pJ1QW4sR7OMcn5GX/episodes?offset=0&limit=20"
 	
     static let SpotifyClientID = "a802cee147dd4b108a4dd0238ec7c413"
 	

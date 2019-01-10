@@ -58,17 +58,22 @@ class HomeViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRem
 		
 		self.sessionManager.initiateSession(with: requestedScopes, options: .default)
 		
-		self.navigationController?.navigationBar.barTintColor = .white
+		self.navigationController?.navigationBar.barStyle = UIBarStyle.black
+		self.navigationController?.navigationBar.tintColor = UIColor.white
+		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 		self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
 		self.navigationController?.navigationBar.shadowImage = UIImage()
 		self.navigationController?.navigationBar.isTranslucent = false
-		self.navigationController?.view.backgroundColor = .white
+		self.navigationController?.view.backgroundColor = .black
 		
 		definesPresentationContext = true
 		
 		if #available(iOS 11.0, *) {
 			self.navigationController?.navigationBar.prefersLargeTitles = true
 		}
+		
+		tableView.estimatedRowHeight = 200
+		tableView.rowHeight = UITableView.automaticDimension
 	}
 	
 	func listTracks(_ result: JSONDictionary) {
@@ -89,8 +94,6 @@ class HomeViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRem
 				self.sessionManager.initiateSession(with: requestedScopes, options: .default)
 			}
 		})
-	
-		print(self.appRemote.connectionParameters.accessToken)
 		
 		TracksService.listTracks(accessToken: self.appRemote.connectionParameters.accessToken ?? "", completion: { error, tracks in
             //Error
@@ -159,7 +162,14 @@ class HomeViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRem
 		debugPrint("Track podcast: %@", playerState.track.isPodcast)
 		debugPrint("Track uri: %@", playerState.track.uri)
 	}
-
+	
+	@objc func playPauseToggle(_ sender: UIButton) {
+	 	print(tracks[sender.tag])
+		
+	 	tracks[sender.tag].nowPlaying = !tracks[sender.tag].nowPlaying
+		
+	 	tableView.reloadData()
+     }
 }
 
 // MARK: - Extensions
@@ -167,7 +177,7 @@ class HomeViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRem
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		if indexPath.row == 0 {
-			return 230
+			return 200
 		} else if indexPath.row == 1 {
 			return 45
 		} else {
@@ -197,6 +207,14 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 			default:
 				let cell = tableView.dequeueReusableCell(withIdentifier: "TrackTableViewCell") as? TrackTableViewCell
 				cell?.setup(track: tracks[indexPath.row - 2])
+				cell?.playPauseButton.tag = indexPath.row - 2
+				cell?.playPauseButton.addTarget(self, action: #selector(playPauseToggle(_:)), for: .touchUpInside)
+				
+				if !tracks[indexPath.row - 2].nowPlaying {
+					cell?.playPauseImageView.image = UIImage(named: "play")
+				} else {
+					cell?.playPauseImageView.image = UIImage(named: "pause")
+				}
 			
 				cell?.selectionStyle = .none
 				cell?.selectedBackgroundView = UIView()

@@ -21,6 +21,7 @@ struct Track: Mappable {
     var releaseDate: String!
     var type: String!
     var duration: Int!
+    var nowPlaying: Bool! = false
 	
     init(_ map: [String : Any]) {
         id <- map.property("id")

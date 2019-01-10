@@ -18,6 +18,7 @@ class TrackTableViewCell: UITableViewCell {
 	@IBOutlet var trackDescriptionLabel: UILabel!
 	@IBOutlet var playPauseView: UIView!
 	@IBOutlet var playPauseImageView: UIImageView!
+	@IBOutlet var playPauseButton: UIButton!
 	@IBOutlet var trackProgressView: UIProgressView!
 	
 	func setup(track: Track) {
