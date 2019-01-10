@@ -169,9 +169,9 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 		if indexPath.row == 0 {
 			return 230
 		} else if indexPath.row == 1 {
-			return 60
+			return 45
 		} else {
-			return 60
+			return 180
 		}
 	}
 
@@ -180,21 +180,29 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		var cell = tableView.dequeueReusableCell(withIdentifier: "IntroTableViewCell")
-		
 		switch indexPath.row {
 			case 0:
-				cell = cell as? IntroTableViewCell
+				let cell = tableView.dequeueReusableCell(withIdentifier: "IntroTableViewCell") as? IntroTableViewCell
+				cell?.selectionStyle = .none
+				cell?.selectedBackgroundView = UIView()
+				
+				return cell!
 			case 1:
-				cell = tableView.dequeueReusableCell(withIdentifier: "SectionTitleTableViewCell") as? SectionTitleTableViewCell
+				let cell = tableView.dequeueReusableCell(withIdentifier: "SectionTitleTableViewCell") as? SectionTitleTableViewCell
+			
+				cell?.selectionStyle = .none
+				cell?.selectedBackgroundView = UIView()
+				
+				return cell!
 			default:
-				cell = tableView.dequeueReusableCell(withIdentifier: "SectionTitleTableViewCell") as? SectionTitleTableViewCell
+				let cell = tableView.dequeueReusableCell(withIdentifier: "TrackTableViewCell") as? TrackTableViewCell
+				cell?.setup(track: tracks[indexPath.row - 2])
+			
+				cell?.selectionStyle = .none
+				cell?.selectedBackgroundView = UIView()
+				
+				return cell!
 		}
-		
-		cell?.selectionStyle = .none
-		cell?.selectedBackgroundView = UIView()
-		
-		return cell!
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

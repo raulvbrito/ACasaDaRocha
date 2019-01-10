@@ -21,6 +21,7 @@
 		41C7396621BF35010069C80C /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C7396521BF35010069C80C /* BaseService.swift */; };
 		41C7396821BF36530069C80C /* TracksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C7396721BF36530069C80C /* TracksService.swift */; };
 		41C7396C21C024980069C80C /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C7396B21C024970069C80C /* SpotifyiOS.framework */; };
+		41F35E3121E7A5B900713777 /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F35E3021E7A5B900713777 /* TrackTableViewCell.swift */; };
 		7E459A13FB6CCF4E2AD60BC6 /* Pods_A_Casa_da_Rocha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C37F7E19A494400A144DE7 /* Pods_A_Casa_da_Rocha.framework */; };
 		94F5DEE5E0A2A2F377B3D03C /* Pods_A_Casa_da_RochaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E310131F323FE31E0A6CD313 /* Pods_A_Casa_da_RochaUITests.framework */; };
 		EB537C98CC5580CE153DB2AB /* Pods_A_Casa_da_RochaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0555E454EF8315388CACE1F9 /* Pods_A_Casa_da_RochaTests.framework */; };
@@ -68,6 +69,7 @@
 		41C7396721BF36530069C80C /* TracksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksService.swift; sourceTree = "<group>"; };
 		41C7396B21C024970069C80C /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
 		41C7396D21C02ACA0069C80C /* A_Casa_da_Rocha-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "A_Casa_da_Rocha-Bridging-Header.h"; sourceTree = "<group>"; };
+		41F35E3021E7A5B900713777 /* TrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
 		4F7CF377FE2ACCE5656BC70A /* Pods-A Casa da RochaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Casa da RochaUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A Casa da RochaUITests/Pods-A Casa da RochaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB40D306E1A3489AE611EC43 /* Pods-A Casa da Rocha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Casa da Rocha.release.xcconfig"; path = "Pods/Target Support Files/Pods-A Casa da Rocha/Pods-A Casa da Rocha.release.xcconfig"; sourceTree = "<group>"; };
 		D2C37F7E19A494400A144DE7 /* Pods_A_Casa_da_Rocha.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_A_Casa_da_Rocha.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -247,6 +249,7 @@
 			children = (
 				416AFF1821B87EB000F9E8B6 /* IntroTableViewCell.swift */,
 				41C7396221BF28A40069C80C /* SectionTitleTableViewCell.swift */,
+				41F35E3021E7A5B900713777 /* TrackTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Spartan/Spartan.framework",
 				"${BUILT_PRODUCTS_DIR}/Tailor/Tailor.framework",
 			);
@@ -454,6 +458,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spartan.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Tailor.framework",
 			);
@@ -517,6 +522,7 @@
 				416AFEE621B85E1C00F9E8B6 /* A_Casa_da_Rocha.xcdatamodeld in Sources */,
 				41C7396621BF35010069C80C /* BaseService.swift in Sources */,
 				417C0D7C21E544DA004162B8 /* Track.swift in Sources */,
+				41F35E3121E7A5B900713777 /* TrackTableViewCell.swift in Sources */,
 				416AFF1921B87EB000F9E8B6 /* IntroTableViewCell.swift in Sources */,
 				41C7396321BF28A40069C80C /* SectionTitleTableViewCell.swift in Sources */,
 				416AFEDE21B85E1C00F9E8B6 /* AppDelegate.swift in Sources */,

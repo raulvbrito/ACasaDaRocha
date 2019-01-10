@@ -7,6 +7,7 @@ target 'A Casa da Rocha' do
 
   # Pods for A Casa da Rocha
   pod 'Alamofire'
+  pod 'SDWebImage'
   pod 'Spartan'
   pod 'Tailor'
 

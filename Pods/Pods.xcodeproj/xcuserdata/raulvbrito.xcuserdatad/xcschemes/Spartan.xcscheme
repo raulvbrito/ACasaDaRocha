@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C6F60C0B4C2533EB385C42B571E86683"
+               BlueprintIdentifier = "9818DEDC6D57755BCFE868B2D751C1F4"
                BlueprintName = "Spartan"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "Spartan.framework">
