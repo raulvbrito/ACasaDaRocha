@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4144919321EE77AC0036741E /* PlaceMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4144919221EE77AC0036741E /* PlaceMarkerView.swift */; };
 		416AFEDE21B85E1C00F9E8B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416AFEDD21B85E1C00F9E8B6 /* AppDelegate.swift */; };
 		416AFEE021B85E1C00F9E8B6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416AFEDF21B85E1C00F9E8B6 /* HomeViewController.swift */; };
 		416AFEE321B85E1C00F9E8B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 416AFEE121B85E1C00F9E8B6 /* Main.storyboard */; };
@@ -16,11 +17,20 @@
 		416AFEF621B85E1E00F9E8B6 /* A_Casa_da_RochaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416AFEF521B85E1E00F9E8B6 /* A_Casa_da_RochaTests.swift */; };
 		416AFF0121B85E1E00F9E8B6 /* A_Casa_da_RochaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416AFF0021B85E1E00F9E8B6 /* A_Casa_da_RochaUITests.swift */; };
 		416AFF1921B87EB000F9E8B6 /* IntroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416AFF1821B87EB000F9E8B6 /* IntroTableViewCell.swift */; };
+		416C9FD321EE767B0098CC39 /* PlaceMarkerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 416C9FD221EE767B0098CC39 /* PlaceMarkerView.xib */; };
 		417C0D7C21E544DA004162B8 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417C0D7B21E544DA004162B8 /* Track.swift */; };
+		418126A921EFD46200BF27B7 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418126A821EFD46200BF27B7 /* SplashScreenViewController.swift */; };
 		41C7396321BF28A40069C80C /* SectionTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C7396221BF28A40069C80C /* SectionTitleTableViewCell.swift */; };
 		41C7396621BF35010069C80C /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C7396521BF35010069C80C /* BaseService.swift */; };
 		41C7396821BF36530069C80C /* TracksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C7396721BF36530069C80C /* TracksService.swift */; };
 		41C7396C21C024980069C80C /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41C7396B21C024970069C80C /* SpotifyiOS.framework */; };
+		41C88B3621E8F8320086AA5B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C88B3521E8F8320086AA5B /* Utils.swift */; };
+		41C88B3821ECF0C00086AA5B /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C88B3721ECF0C00086AA5B /* NewsViewController.swift */; };
+		41C88B3A21ECF1400086AA5B /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C88B3921ECF1400086AA5B /* PlacesViewController.swift */; };
+		41C88B3C21ECF1670086AA5B /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C88B3B21ECF1670086AA5B /* SupportViewController.swift */; };
+		41C88B3E21ECF19C0086AA5B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C88B3D21ECF19C0086AA5B /* BaseViewController.swift */; };
+		41EB3E5421EE42AB0044F9DD /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB3E5321EE42AB0044F9DD /* PlaceTableViewCell.swift */; };
+		41EB3E5621EE482B0044F9DD /* dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 41EB3E5521EE482B0044F9DD /* dark.json */; };
 		41F35E3121E7A5B900713777 /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F35E3021E7A5B900713777 /* TrackTableViewCell.swift */; };
 		7E459A13FB6CCF4E2AD60BC6 /* Pods_A_Casa_da_Rocha.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2C37F7E19A494400A144DE7 /* Pods_A_Casa_da_Rocha.framework */; };
 		94F5DEE5E0A2A2F377B3D03C /* Pods_A_Casa_da_RochaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E310131F323FE31E0A6CD313 /* Pods_A_Casa_da_RochaUITests.framework */; };
@@ -48,6 +58,7 @@
 		0555E454EF8315388CACE1F9 /* Pods_A_Casa_da_RochaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_A_Casa_da_RochaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		298A2EBB1A5BF3AC0A1C863D /* Pods-A Casa da Rocha.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Casa da Rocha.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A Casa da Rocha/Pods-A Casa da Rocha.debug.xcconfig"; sourceTree = "<group>"; };
 		2D12DF1CCD188836FE24AE68 /* Pods-A Casa da RochaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Casa da RochaUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-A Casa da RochaUITests/Pods-A Casa da RochaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4144919221EE77AC0036741E /* PlaceMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMarkerView.swift; sourceTree = "<group>"; };
 		416AFEDA21B85E1C00F9E8B6 /* A Casa da Rocha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "A Casa da Rocha.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		416AFEDD21B85E1C00F9E8B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		416AFEDF21B85E1C00F9E8B6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -63,12 +74,21 @@
 		416AFF0021B85E1E00F9E8B6 /* A_Casa_da_RochaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A_Casa_da_RochaUITests.swift; sourceTree = "<group>"; };
 		416AFF0221B85E1E00F9E8B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		416AFF1821B87EB000F9E8B6 /* IntroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroTableViewCell.swift; sourceTree = "<group>"; };
+		416C9FD221EE767B0098CC39 /* PlaceMarkerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceMarkerView.xib; sourceTree = "<group>"; };
 		417C0D7B21E544DA004162B8 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		418126A821EFD46200BF27B7 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		41C7396221BF28A40069C80C /* SectionTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleTableViewCell.swift; sourceTree = "<group>"; };
 		41C7396521BF35010069C80C /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		41C7396721BF36530069C80C /* TracksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksService.swift; sourceTree = "<group>"; };
 		41C7396B21C024970069C80C /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
 		41C7396D21C02ACA0069C80C /* A_Casa_da_Rocha-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "A_Casa_da_Rocha-Bridging-Header.h"; sourceTree = "<group>"; };
+		41C88B3521E8F8320086AA5B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		41C88B3721ECF0C00086AA5B /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		41C88B3921ECF1400086AA5B /* PlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
+		41C88B3B21ECF1670086AA5B /* SupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
+		41C88B3D21ECF19C0086AA5B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		41EB3E5321EE42AB0044F9DD /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
+		41EB3E5521EE482B0044F9DD /* dark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dark.json; sourceTree = "<group>"; };
 		41F35E3021E7A5B900713777 /* TrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
 		4F7CF377FE2ACCE5656BC70A /* Pods-A Casa da RochaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Casa da RochaUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-A Casa da RochaUITests/Pods-A Casa da RochaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB40D306E1A3489AE611EC43 /* Pods-A Casa da Rocha.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-A Casa da Rocha.release.xcconfig"; path = "Pods/Target Support Files/Pods-A Casa da Rocha/Pods-A Casa da Rocha.release.xcconfig"; sourceTree = "<group>"; };
@@ -158,6 +178,7 @@
 				41C7396D21C02ACA0069C80C /* A_Casa_da_Rocha-Bridging-Header.h */,
 				416AFEE421B85E1C00F9E8B6 /* A_Casa_da_Rocha.xcdatamodeld */,
 				416AFEE721B85E1E00F9E8B6 /* Assets.xcassets */,
+				41EB3E5521EE482B0044F9DD /* dark.json */,
 				416AFEEC21B85E1E00F9E8B6 /* Info.plist */,
 				416AFF0E21B85E9600F9E8B6 /* Resources */,
 				416AFF0F21B85EA100F9E8B6 /* Sources */,
@@ -231,7 +252,12 @@
 		416AFF1321B85ECF00F9E8B6 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				41C88B3D21ECF19C0086AA5B /* BaseViewController.swift */,
 				416AFEDF21B85E1C00F9E8B6 /* HomeViewController.swift */,
+				41C88B3721ECF0C00086AA5B /* NewsViewController.swift */,
+				41C88B3921ECF1400086AA5B /* PlacesViewController.swift */,
+				41C88B3B21ECF1670086AA5B /* SupportViewController.swift */,
+				418126A821EFD46200BF27B7 /* SplashScreenViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -240,6 +266,8 @@
 			isa = PBXGroup;
 			children = (
 				416AFF1521B85EE700F9E8B6 /* Cells */,
+				4144919221EE77AC0036741E /* PlaceMarkerView.swift */,
+				416C9FD221EE767B0098CC39 /* PlaceMarkerView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -248,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				416AFF1821B87EB000F9E8B6 /* IntroTableViewCell.swift */,
+				41EB3E5321EE42AB0044F9DD /* PlaceTableViewCell.swift */,
 				41C7396221BF28A40069C80C /* SectionTitleTableViewCell.swift */,
 				41F35E3021E7A5B900713777 /* TrackTableViewCell.swift */,
 			);
@@ -267,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				416AFEDD21B85E1C00F9E8B6 /* AppDelegate.swift */,
+				41C88B3521E8F8320086AA5B /* Utils.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -292,6 +322,7 @@
 				416AFED721B85E1C00F9E8B6 /* Frameworks */,
 				416AFED821B85E1C00F9E8B6 /* Resources */,
 				4CF8417FECAB95BCA970BCF1 /* [CP] Embed Pods Frameworks */,
+				BDBFC8BFE681F654CA5AD01F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -391,6 +422,8 @@
 				416AFEEB21B85E1E00F9E8B6 /* LaunchScreen.storyboard in Resources */,
 				416AFEE821B85E1E00F9E8B6 /* Assets.xcassets in Resources */,
 				416AFEE321B85E1C00F9E8B6 /* Main.storyboard in Resources */,
+				416C9FD321EE767B0098CC39 /* PlaceMarkerView.xib in Resources */,
+				41EB3E5621EE482B0044F9DD /* dark.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,29 +475,45 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-A Casa da Rocha/Pods-A Casa da Rocha-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AlamoRecord/AlamoRecord.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/Spartan/Spartan.framework",
 				"${BUILT_PRODUCTS_DIR}/Tailor/Tailor.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamoRecord.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spartan.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Tailor.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-A Casa da Rocha/Pods-A Casa da Rocha-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDBFC8BFE681F654CA5AD01F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-A Casa da Rocha/Pods-A Casa da Rocha-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-A Casa da Rocha/Pods-A Casa da Rocha-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D04B1256C3A7B6AD02DAC5DB /* [CP] Check Pods Manifest.lock */ = {
@@ -518,15 +567,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41C88B3A21ECF1400086AA5B /* PlacesViewController.swift in Sources */,
 				416AFEE021B85E1C00F9E8B6 /* HomeViewController.swift in Sources */,
+				4144919321EE77AC0036741E /* PlaceMarkerView.swift in Sources */,
+				41C88B3C21ECF1670086AA5B /* SupportViewController.swift in Sources */,
+				418126A921EFD46200BF27B7 /* SplashScreenViewController.swift in Sources */,
 				416AFEE621B85E1C00F9E8B6 /* A_Casa_da_Rocha.xcdatamodeld in Sources */,
 				41C7396621BF35010069C80C /* BaseService.swift in Sources */,
+				41C88B3E21ECF19C0086AA5B /* BaseViewController.swift in Sources */,
 				417C0D7C21E544DA004162B8 /* Track.swift in Sources */,
+				41C88B3821ECF0C00086AA5B /* NewsViewController.swift in Sources */,
 				41F35E3121E7A5B900713777 /* TrackTableViewCell.swift in Sources */,
+				41C88B3621E8F8320086AA5B /* Utils.swift in Sources */,
 				416AFF1921B87EB000F9E8B6 /* IntroTableViewCell.swift in Sources */,
 				41C7396321BF28A40069C80C /* SectionTitleTableViewCell.swift in Sources */,
 				416AFEDE21B85E1C00F9E8B6 /* AppDelegate.swift in Sources */,
 				41C7396821BF36530069C80C /* TracksService.swift in Sources */,
+				41EB3E5421EE42AB0044F9DD /* PlaceTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,7 +760,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4QDFB98CYU;
+				DEVELOPMENT_TEAM = LFG72U4M9F;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/A\\ Casa\\ da\\ Rocha",
@@ -719,7 +776,7 @@
 					"\"Alamofire\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.raulvbrito.A-Casa-da-Rocha";
+				PRODUCT_BUNDLE_IDENTIFIER = com.raulvbrito.ACasaDaRocha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/raulvbrito/Projects/iOS/A Casa da Rocha/A Casa da Rocha/A_Casa_da_Rocha-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
@@ -733,7 +790,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4QDFB98CYU;
+				DEVELOPMENT_TEAM = LFG72U4M9F;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/A\\ Casa\\ da\\ Rocha",
@@ -749,7 +806,7 @@
 					"\"Alamofire\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.raulvbrito.A-Casa-da-Rocha";
+				PRODUCT_BUNDLE_IDENTIFIER = com.raulvbrito.ACasaDaRocha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/raulvbrito/Projects/iOS/A Casa da Rocha/A Casa da Rocha/A_Casa_da_Rocha-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;

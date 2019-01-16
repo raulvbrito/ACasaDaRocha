@@ -9,7 +9,9 @@
 import UIKit
 import CoreData
 import Alamofire
-import Spartan
+import GoogleMaps
+
+let googleApiKey = "AIzaSyByxP2Kzx0tz_Je-Sjc7-EmKZ1yqj1brCE"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,18 +21,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	let SpotifyClientID = "a802cee147dd4b108a4dd0238ec7c413"
 	let SpotifyRedirectURL = URL(string: "a-casa-da-rocha://spotify-login-callback")!
 
-	lazy var configuration = SPTConfiguration(
-	  clientID: SpotifyClientID,
-	  redirectURL: SpotifyRedirectURL
-	)
+	lazy var configuration: SPTConfiguration = {
+        let configuration = SPTConfiguration(clientID: SpotifyClientID, redirectURL: SpotifyRedirectURL)
+		
+		// Set the playURI to a non-nil value so that Spotify plays music after authenticating and App Remote can connect
+        // otherwise another app switch will be required
+        configuration.playURI = ""
+
+        configuration.tokenSwapURL = URL(string: "https://a-casa-da-rocha.herokuapp.com/api/token")
+        configuration.tokenRefreshURL = URL(string: "https://a-casa-da-rocha.herokuapp.com/api/refresh_token")
+        return configuration
+    }()
 	
 	lazy var sessionManager: SPTSessionManager = {
-	  if let tokenSwapURL = URL(string: "https://a-casa-da-rocha.herokuapp.com/api/token"),
-		 let tokenRefreshURL = URL(string: "https://a-casa-da-rocha.herokuapp.com/api/refresh_token") {
-		self.configuration.tokenSwapURL = tokenSwapURL
-		self.configuration.tokenRefreshURL = tokenRefreshURL
-		self.configuration.playURI = ""
-	  }
 		let manager = SPTSessionManager(configuration: self.configuration, delegate: self as? SPTSessionManagerDelegate)
 	  return manager
 	}()
@@ -46,6 +49,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 //		let requestedScopes: SPTScope = [.appRemoteControl]
 //        self.sessionManager.initiateSession(with: requestedScopes, options: .default)
+
+		GMSServices.provideAPIKey(googleApiKey)
+
+		UserDefaults.standard.synchronize()
 		
 		return true
 	}
@@ -54,41 +61,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		let params = self.appRemote.authorizationParameters(from: url)
 		
 		if let code = params?["code"] {
-			print(code)
+			print("New Spotify Code: " + code)
 			
-			Alamofire.request("https://a-casa-da-rocha.herokuapp.com/api/token?code=" + code, method: .post, parameters: ["code": code], encoding: JSONEncoding.default, headers: ["Authorization": "", "Content-Type": "application/json"]).validate().responseJSON { response in
-					print(response)
-					print(response.result)
+			let userDefaults = UserDefaults.standard
+		
+			do {
+				userDefaults.set(code, forKey: "SpotifyCode")
+			} catch {
+				print("Not able to save SpotifyCode")
+			}
+		
+			userDefaults.synchronize()
+			
+			if let tabBarController = self.window?.rootViewController as? UITabBarController,
+			   let navigationController = tabBarController.viewControllers?[0] as? UINavigationController,
+			   let homeViewController = navigationController.visibleViewController as? HomeViewController {
+				homeViewController.spotifyAuthentication(code: code)
 				
-					switch response.result {
-					case .success(let JSON):
-						
-						//Error
-						guard let result = JSON as? JSONDictionary else {
-//							completion(NSError(domain: "Não foi possível obter o access_token", code: 400, userInfo: nil), [:])
-							return
-						}
-						
-						print(result)
-						
-						self.sessionManager.application(app, open: url, options: options)
-						
-						if let tabBarController = self.window?.rootViewController as? UITabBarController,
-						   let navigationController = tabBarController.viewControllers?[2] as? UINavigationController,
-						   let homeViewController = navigationController.visibleViewController as? HomeViewController {
-							homeViewController.listTracks(result)
-						}
-						
-						break
-						
-					default:
-//						completion(NSError(domain: "Não foi possível obter o access_token", code: 400, userInfo: nil), [:])
-						break
-					}
-					return
-				}
+				self.sessionManager.application(app, open: url, options: options)
+			}
 		} else {
-        	self.sessionManager.application(app, open: url, options: options)
+			self.sessionManager.application(app, open: url, options: options)
 		}
 		
         return true
@@ -96,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func applicationWillResignActive(_ application: UIApplication) {
 		if self.appRemote.isConnected {
-			self.appRemote.disconnect()
+//			self.appRemote.disconnect()
 	  	}
 	}
 
@@ -110,8 +103,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 
 	func applicationDidBecomeActive(_ application: UIApplication) {
-		if let _ = self.appRemote.connectionParameters.accessToken {
-			self.appRemote.connect()
+		let userDefaults = UserDefaults.standard
+		
+		if let spotifyAccessToken = userDefaults.string(forKey: "SpotifyAccessToken") {
+			self.appRemote.connectionParameters.accessToken = spotifyAccessToken
+			
+			if !self.appRemote.isConnected {
+				self.appRemote.connect()
+			}
 		}
 	}
 

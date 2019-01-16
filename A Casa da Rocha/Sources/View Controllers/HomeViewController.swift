@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import Spartan
+import MediaPlayer
 
-class HomeViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRemoteDelegate, SPTAppRemotePlayerStateDelegate {
+class HomeViewController: BaseViewController, SPTSessionManagerDelegate, SPTAppRemoteDelegate, SPTAppRemotePlayerStateDelegate {
 	
 	// MARK: - Properties
 	
@@ -21,19 +21,22 @@ class HomeViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRem
 	
 	let SpotifyClientID = "a802cee147dd4b108a4dd0238ec7c413"
 	let SpotifyRedirectURL = URL(string: "a-casa-da-rocha://spotify-login-callback")!
+	
+	let requestedScopes: SPTScope = [.appRemoteControl]
+	
+	lazy var configuration: SPTConfiguration = {
+        let configuration = SPTConfiguration(clientID: SpotifyClientID, redirectURL: SpotifyRedirectURL)
+		
+		// Set the playURI to a non-nil value so that Spotify plays music after authenticating and App Remote can connect
+        // otherwise another app switch will be required
+        configuration.playURI = ""
 
-	lazy var configuration = SPTConfiguration(
-	  clientID: SpotifyClientID,
-	  redirectURL: SpotifyRedirectURL
-	)
+        configuration.tokenSwapURL = URL(string: "https://a-casa-da-rocha.herokuapp.com/api/token")
+        configuration.tokenRefreshURL = URL(string: "https://a-casa-da-rocha.herokuapp.com/api/refresh_token")
+        return configuration
+    }()
 	
 	lazy var sessionManager: SPTSessionManager = {
-	  if let tokenSwapURL = URL(string: "https://a-casa-da-rocha.herokuapp.com/api/token"),
-		 let tokenRefreshURL = URL(string: "https://a-casa-da-rocha.herokuapp.com/api/refresh_token") {
-		self.configuration.tokenSwapURL = tokenSwapURL
-		self.configuration.tokenRefreshURL = tokenRefreshURL
-		self.configuration.playURI = ""
-	  }
 	  let manager = SPTSessionManager(configuration: self.configuration, delegate: self)
 	  return manager
 	}()
@@ -45,6 +48,9 @@ class HomeViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRem
 	}()
 	
 	var tracks: [Track] = []
+	var nowPlayingIndex: Int = -1
+	
+	weak var trackProgressTimer: Timer?
 	
 	
 	// MARK: - Methods
@@ -52,56 +58,94 @@ class HomeViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRem
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		Spartan.loggingEnabled = true
+		let userDefaults = UserDefaults.standard
 		
-		let requestedScopes: SPTScope = [.appRemoteControl]
+		if let spotifyAccessToken = userDefaults.string(forKey: "SpotifyAccessToken"),
+		   let spotifyRefreshToken = userDefaults.string(forKey: "SpotifyRefreshToken") {
+			let spotifyAuth: JSONDictionary = [
+				"access_token": spotifyAccessToken,
+				"refresh_token": spotifyRefreshToken
+			]
+
+//			self.sessionManager.initiateSession(with: self.requestedScopes, options: .default)
+			listTracks(spotifyAuth)
+		} else if let spotifyCode = userDefaults.string(forKey: "SpotifyCode") {
+			print("Stored Spotify Code: " + spotifyCode)
 		
-		self.sessionManager.initiateSession(with: requestedScopes, options: .default)
-		
-		self.navigationController?.navigationBar.barStyle = UIBarStyle.black
-		self.navigationController?.navigationBar.tintColor = UIColor.white
-		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-		self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-		self.navigationController?.navigationBar.shadowImage = UIImage()
-		self.navigationController?.navigationBar.isTranslucent = false
-		self.navigationController?.view.backgroundColor = .black
-		
-		definesPresentationContext = true
-		
-		if #available(iOS 11.0, *) {
-			self.navigationController?.navigationBar.prefersLargeTitles = true
+			spotifyAuthentication(code: spotifyCode)
+		} else {
+			self.sessionManager.initiateSession(with: self.requestedScopes, options: .default)
 		}
+		
+//		sessionManager.renewSession()
 		
 		tableView.estimatedRowHeight = 200
 		tableView.rowHeight = UITableView.automaticDimension
 	}
 	
-	func listTracks(_ result: JSONDictionary) {
-		Spartan.authorizationToken = result["access_token"] as? String
+	func spotifyAuthentication(code: String?) {
+		TracksService.spotifyAuthentication(code: code ?? "", completion: { error, result in
+			if error != nil {
+				print(error as Any)
+				
+				self.sessionManager.initiateSession(with: self.requestedScopes, options: .default)
+			} else {
+				print(result)
+				
+				let userDefaults = UserDefaults.standard
 		
-		self.appRemote.connectionParameters.accessToken = result["access_token"] as? String
-		self.appRemote.connect()
-		
-//		self.configuration.playURI = "spotify:episode:1A6HDauzzKuTOZQQlNHQoS"
-	
-		let requestedScopes: SPTScope = [.appRemoteControl]
-		
-		_ = Spartan.getMe(success: { (user) in
-			print(user.country)
-			print(user.email)
-		}, failure: { (error) in
-			if error.errorType == .unauthorized {
-				self.sessionManager.initiateSession(with: requestedScopes, options: .default)
+				do {
+					userDefaults.set(code, forKey: "SpotifyCode")
+					userDefaults.set(result["access_token"], forKey: "SpotifyAccessToken")
+					userDefaults.set(result["refresh_token"], forKey: "SpotifyRefreshToken")
+				} catch {
+					print("Not able to save SpotifyAuth")
+				}
+				
+				userDefaults.synchronize()
+				
+				self.listTracks(result)
 			}
 		})
+	}
+	
+	func listTracks(_ result: JSONDictionary) {
+		self.appRemote.connectionParameters.accessToken = result["access_token"] as? String
 		
 		TracksService.listTracks(accessToken: self.appRemote.connectionParameters.accessToken ?? "", completion: { error, tracks in
             //Error
             if error != nil {
 				print(error as Any)
+				
+				if error?.code == 401 {
+					TracksService.spotifyRefreshToken(completion: { error, result in
+						if error != nil {
+							print(error as Any)
+							
+							self.sessionManager.initiateSession(with: self.requestedScopes, options: .default)
+						} else {
+							let userDefaults = UserDefaults.standard
+		
+							do {
+								userDefaults.set(result["access_token"], forKey: "SpotifyAccessToken")
+							} catch {
+								print("Not able to save SpotifyAccessToken")
+							}
+							
+							userDefaults.synchronize()
+							
+							self.listTracks(result)
+						}
+					})
+				}
             } else {
-				print(tracks)
-				print(self.tableView)
+//				print(tracks)
+
+				DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+					if !self.appRemote.isConnected {
+						self.appRemote.connect()
+					}
+				}
 				
 				self.tracks = tracks
 				self.tableView.reloadData()
@@ -115,16 +159,17 @@ class HomeViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRem
 	func sessionManager(manager: SPTSessionManager, didInitiate session: SPTSession) {
 		print("success", session)
 		
-		Spartan.authorizationToken = session.accessToken
+		let userDefaults = UserDefaults.standard
 		
-		_ = Spartan.getMe(success: { (user) in
-			print(user)
-		}, failure: { (error) in
-			print(error)
-		})
+		userDefaults.synchronize()
 
 		self.appRemote.connectionParameters.accessToken = session.accessToken
-		self.appRemote.connect()
+		
+		DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+			if !self.appRemote.isConnected {
+				self.appRemote.connect()
+			}
+		}
 	}
 	func sessionManager(manager: SPTSessionManager, didFailWith error: Error) {
 		print("fail spotify", error)
@@ -142,34 +187,80 @@ class HomeViewController: UIViewController, SPTSessionManagerDelegate, SPTAppRem
 			if let error = error {
 		  		debugPrint(error.localizedDescription)
 			}
+			
+			self.appRemote.playerAPI?.pause(nil)
 		})
 	}
 	func appRemote(_ appRemote: SPTAppRemote, didDisconnectWithError error: Error?) {
-		print("disconnected")
+		print("disconnected", error)
 	}
 	func appRemote(_ appRemote: SPTAppRemote, didFailConnectionAttemptWithError error: Error?) {
 		print("failed", error)
-		print("failed", error?.localizedDescription)
+		
+		DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+			if !self.appRemote.isConnected {
+				self.sessionManager.initiateSession(with: self.requestedScopes, options: .default)
+			}
+		}
 	}
 	func playerStateDidChange(_ playerState: SPTAppRemotePlayerState) {
 		print("player state changed")
-		debugPrint("Track name: %@", playerState.track.name)
-		debugPrint("Track contextURI: %@", playerState.contextURI)
-		debugPrint("Track album uri: %@", playerState.track.album.uri)
-		debugPrint("Track album name: %@", playerState.track.album.name)
-		debugPrint("Track artist uri: %@", playerState.track.artist.uri)
-		debugPrint("Track artist name: %@", playerState.track.artist.name)
-		debugPrint("Track podcast: %@", playerState.track.isPodcast)
-		debugPrint("Track uri: %@", playerState.track.uri)
+		
+		if nowPlayingIndex > -1 {
+			tracks[nowPlayingIndex].nowPlaying = !playerState.isPaused
+			tracks[nowPlayingIndex].progress = playerState.playbackPosition
+			
+			tableView.reloadData()
+		}
+		
+//		debugPrint("Track name: %@", playerState.track.name)
+//		debugPrint("Track contextURI: %@", playerState.contextURI)
+//		debugPrint("Track album uri: %@", playerState.track.album.uri)
+//		debugPrint("Track album name: %@", playerState.track.album.name)
+//		debugPrint("Track artist uri: %@", playerState.track.artist.uri)
+//		debugPrint("Track artist name: %@", playerState.track.artist.name)
+//		debugPrint("Track podcast: %@", playerState.track.isPodcast)
+//		debugPrint("Track uri: %@", playerState.track.uri)
+	}
+	
+	@objc func trackProgress() {
+		tracks[nowPlayingIndex].progress += 1000
+		
+		tableView.reloadData()
 	}
 	
 	@objc func playPauseToggle(_ sender: UIButton) {
-	 	print(tracks[sender.tag])
+		trackProgressTimer?.invalidate()
 		
-	 	tracks[sender.tag].nowPlaying = !tracks[sender.tag].nowPlaying
+		if appRemote.isConnected {
+			let selection = UISelectionFeedbackGenerator()
 		
-	 	tableView.reloadData()
-     }
+			selection.selectionChanged()
+		
+			if nowPlayingIndex > -1 && nowPlayingIndex != sender.tag {
+				tracks[nowPlayingIndex].nowPlaying = false
+			}
+			
+			nowPlayingIndex = sender.tag
+			
+			tracks[nowPlayingIndex].nowPlaying = !tracks[nowPlayingIndex].nowPlaying
+			
+			if tracks[nowPlayingIndex].nowPlaying {
+				self.configuration.playURI = tracks[nowPlayingIndex].uri
+				
+				self.appRemote.playerAPI?.play(tracks[nowPlayingIndex].uri, callback: { (response, error) in
+					self.trackProgressTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(HomeViewController.trackProgress), userInfo: nil, repeats: true)
+				})
+			} else {
+				self.appRemote.playerAPI?.pause({ (response, error) in
+				})
+			}
+			
+			tableView.reloadData()
+	 	} else {
+			self.appRemote.connect()
+		}
+	}
 }
 
 // MARK: - Extensions
@@ -209,6 +300,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 				cell?.setup(track: tracks[indexPath.row - 2])
 				cell?.playPauseButton.tag = indexPath.row - 2
 				cell?.playPauseButton.addTarget(self, action: #selector(playPauseToggle(_:)), for: .touchUpInside)
+				cell?.trackProgressView.setProgress(Float(Double(tracks[indexPath.row - 2].progress)/Double(tracks[indexPath.row - 2].duration)), animated: true)
 				
 				if !tracks[indexPath.row - 2].nowPlaying {
 					cell?.playPauseImageView.image = UIImage(named: "play")

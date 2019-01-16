@@ -16,6 +16,7 @@ class TrackTableViewCell: UITableViewCell {
 	@IBOutlet var trackTitleLabel: UILabel!
 	@IBOutlet var trackArtistLabel: UILabel!
 	@IBOutlet var trackDescriptionLabel: UILabel!
+	@IBOutlet var trackDurationLabel: UILabel!
 	@IBOutlet var playPauseView: UIView!
 	@IBOutlet var playPauseImageView: UIImageView!
 	@IBOutlet var playPauseButton: UIButton!
@@ -26,5 +27,6 @@ class TrackTableViewCell: UITableViewCell {
 		trackTitleLabel.text = track.name
 		trackArtistLabel.text = "A Casa da Rocha"
 		trackDescriptionLabel.text = track.description
+		trackDurationLabel.text = String((track.duration/1000)/60) + " MIN"
 	}
 }

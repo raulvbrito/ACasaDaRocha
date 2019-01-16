@@ -30,20 +30,101 @@ class TracksService: BaseService {
 	
     // MARK: - API Requests
 	
+    static func spotifyAuthentication(code: String, completion: @escaping (_ error: NSError?, _ result: JSONDictionary) -> Void){
+		
+        Alamofire.request("https://a-casa-da-rocha.herokuapp.com/api/token?code=" + code, method: .post, parameters: ["code": code], encoding: JSONEncoding.default, headers: ["Authorization": "", "Content-Type": "application/json"]).validate().responseJSON { response in
+				print(response)
+				print(response.result)
+		
+				switch response.result {
+				case .success(let JSON):
+					
+					//Error
+					guard let result = JSON as? JSONDictionary else {
+						completion(NSError(domain: "Não foi possível obter o access_token", code: 400, userInfo: nil), [:])
+						return
+					}
+					
+					print(result)
+					
+					completion(nil, result)
+					
+					break
+					
+				default:
+					completion(NSError(domain: "Não foi possível obter o access_token", code: 400, userInfo: nil), [:])
+					break
+				}
+				return
+		}
+    }
+	
+    static func spotifyRefreshToken(completion: @escaping (_ error: NSError?, _ result: JSONDictionary) -> Void){
+    	let userDefaults = UserDefaults.standard
+		let spotifyRefreshToken = userDefaults.string(forKey: "SpotifyRefreshToken")
+		
+		Alamofire.request("https://a-casa-da-rocha.herokuapp.com/api/refresh_token", method: .post, parameters: ["refresh_token": spotifyRefreshToken ?? ""], encoding: URLEncoding.default, headers: ["Content-Type": "application/x-www-form-urlencoded"]).validate().responseJSON { response in
+				print(response)
+		
+				switch response.result {
+				case .success(let JSON):
+					
+					//Error
+					guard let result = JSON as? JSONDictionary else {
+						completion(NSError(domain: "Não foi possível obter o access_token", code: 400, userInfo: nil), [:])
+						return
+					}
+					
+					print(result)
+					
+					completion(nil, result)
+					
+					break
+					
+				default:
+					completion(NSError(domain: "Não foi possível obter o access_token", code: 400, userInfo: nil), [:])
+					break
+				}
+				return
+		}
+		
+//		Alamofire.request("https://a-casa-da-rocha.herokuapp.com/api/refresh_token", method: .post, parameters: ["refresh_token": spotifyRefreshToken ?? ""], encoding: JSONEncoding.default, headers: ["Authorization": "", "Content-Type": "application/json"]).validate().responseJSON { response in
+//				print(response)
+//				print(response.result)
+//
+//				switch response.result {
+//				case .success(let JSON):
+//
+//					//Error
+//					guard let result = JSON as? JSONDictionary else {
+//						completion(NSError(domain: "Não foi possível obter o access_token", code: 400, userInfo: nil), [:])
+//						return
+//					}
+//
+//					print(result)
+//
+//					completion(nil, result)
+//
+//					break
+//
+//				default:
+//					completion(NSError(domain: "Não foi possível obter o access_token", code: 400, userInfo: nil), [:])
+//					break
+//				}
+//				return
+//		}
+    }
+	
     static func listTracks(accessToken: String, completion: @escaping (_ error: NSError?, _ result: [Track]) -> Void){
 		
         let url = "\(URLs.TracksURL)"
 		
-        print(url)
-		
         self.instance.headersSet["Authorization"] = "Bearer \(accessToken)"
-		
-        print(self.instance.headersSet)
 		
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: self.instance.headersSet).validate().responseJSON{ response in
 			
-            print(response)
-            print(response.result)
+//            print(response)
+//            print(response.result)
 			
             switch response.result {
             case .success(let JSON):
@@ -54,19 +135,20 @@ class TracksService: BaseService {
                     return
                 }
 				
-                print(result)
-				
                 //Success
 				let tracks = result.array("items")?.compactMap(Track.init) ?? []
-				
-                print(tracks)
 				
                 completion(nil, tracks)
 				
                 break
 				
             default:
-				completion(NSError(domain: "Não foi possível listar as faixas", code: 400, userInfo: nil), [])
+            	print(response)
+            	print(response.result)
+            	print(response.response)
+            	print(response.response?.statusCode)
+				
+				completion(NSError(domain: "Não foi possível listar as faixas", code: response.response?.statusCode ?? 400, userInfo: nil), [])
                 break
             }
             return

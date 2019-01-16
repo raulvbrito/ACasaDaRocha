@@ -7,8 +7,9 @@ target 'A Casa da Rocha' do
 
   # Pods for A Casa da Rocha
   pod 'Alamofire'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
   pod 'SDWebImage'
-  pod 'Spartan'
   pod 'Tailor'
 
   target 'A Casa da RochaTests' do

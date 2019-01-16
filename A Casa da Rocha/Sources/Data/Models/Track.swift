@@ -20,7 +20,8 @@ struct Track: Mappable {
     var imageUrl: String!
     var releaseDate: String!
     var type: String!
-    var duration: Int!
+    var duration: Int! 
+    var progress: Int! = 0
     var nowPlaying: Bool! = false
 	
     init(_ map: [String : Any]) {
