@@ -7,18 +7,25 @@
 //
 
 import UIKit
+import Hero
 
 class IntroTableViewCell: UITableViewCell {
 
+	@IBOutlet var logoViews: [UIView]!
+	@IBOutlet var fadeLabels: [UILabel]!
+	
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+		
+		for logoView in self.logoViews {
+			logoView.hero.modifiers = [.duration(0.5), .timingFunction(.easeInOut), .useScaleBasedSizeChange]
+		}
+		
+		for label in self.fadeLabels {
+			UIView.animate(withDuration: 0.8, delay: 0, options: .curveEaseInOut, animations: {
+				label.alpha = 1
+			}, completion: nil)
+		}
     }
 
 }

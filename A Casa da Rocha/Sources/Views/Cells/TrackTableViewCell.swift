@@ -22,6 +22,14 @@ class TrackTableViewCell: UITableViewCell {
 	@IBOutlet var playPauseButton: UIButton!
 	@IBOutlet var trackProgressView: UIProgressView!
 	
+	override func awakeFromNib() {
+        super.awakeFromNib()
+		
+		UIView.animate(withDuration: 0.6, delay: 0.2, options: .curveEaseInOut, animations: {
+			self.playerView.alpha = 1
+		}, completion: nil)
+    }
+	
 	func setup(track: Track) {
 		trackCoverImageView.sd_setImage(with: URL(string: track.imageUrl))
 		trackTitleLabel.text = track.name

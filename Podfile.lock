@@ -7,6 +7,7 @@ PODS:
     - GoogleMaps/Base
   - GooglePlaces (2.7.0):
     - GoogleMaps/Base (= 2.7.0)
+  - Hero (1.4.0)
   - SDWebImage (4.4.3):
     - SDWebImage/Core (= 4.4.3)
   - SDWebImage/Core (4.4.3)
@@ -16,6 +17,7 @@ DEPENDENCIES:
   - Alamofire
   - GoogleMaps
   - GooglePlaces
+  - Hero
   - SDWebImage
   - Tailor
 
@@ -24,6 +26,7 @@ SPEC REPOS:
     - Alamofire
     - GoogleMaps
     - GooglePlaces
+    - Hero
     - SDWebImage
     - Tailor
 
@@ -31,9 +34,10 @@ SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
   GooglePlaces: 3d06e6c99654545b4738ce49648745779c25f2ef
+  Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   Tailor: 4fb574e8815d076abbf2bd7ffdbf4b14103fe17c
 
-PODFILE CHECKSUM: 99b991138f8a9f00bdba3505f6cc1d27aa606e38
+PODFILE CHECKSUM: 2c90ed8f27a70f3822283276299bbe248d438dff
 
 COCOAPODS: 1.5.3

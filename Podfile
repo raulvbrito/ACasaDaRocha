@@ -9,6 +9,7 @@ target 'A Casa da Rocha' do
   pod 'Alamofire'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'Hero'
   pod 'SDWebImage'
   pod 'Tailor'
 

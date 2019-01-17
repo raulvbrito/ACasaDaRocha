@@ -12,4 +12,12 @@ class SectionTitleTableViewCell: UITableViewCell {
 
 	@IBOutlet weak var titleLabel: UILabel!
 	
+	override func awakeFromNib() {
+        super.awakeFromNib()
+		
+		UIView.animate(withDuration: 0.8, delay: 0, options: .curveEaseInOut, animations: {
+			self.titleLabel.alpha = 1
+		}, completion: nil)
+    }
+
 }

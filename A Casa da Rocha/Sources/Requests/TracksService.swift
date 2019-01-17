@@ -87,32 +87,6 @@ class TracksService: BaseService {
 				}
 				return
 		}
-		
-//		Alamofire.request("https://a-casa-da-rocha.herokuapp.com/api/refresh_token", method: .post, parameters: ["refresh_token": spotifyRefreshToken ?? ""], encoding: JSONEncoding.default, headers: ["Authorization": "", "Content-Type": "application/json"]).validate().responseJSON { response in
-//				print(response)
-//				print(response.result)
-//
-//				switch response.result {
-//				case .success(let JSON):
-//
-//					//Error
-//					guard let result = JSON as? JSONDictionary else {
-//						completion(NSError(domain: "Não foi possível obter o access_token", code: 400, userInfo: nil), [:])
-//						return
-//					}
-//
-//					print(result)
-//
-//					completion(nil, result)
-//
-//					break
-//
-//				default:
-//					completion(NSError(domain: "Não foi possível obter o access_token", code: 400, userInfo: nil), [:])
-//					break
-//				}
-//				return
-//		}
     }
 	
     static func listTracks(accessToken: String, completion: @escaping (_ error: NSError?, _ result: [Track]) -> Void){
@@ -123,6 +97,7 @@ class TracksService: BaseService {
 		
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: self.instance.headersSet).validate().responseJSON{ response in
 			
+			print(response.request)
 //            print(response)
 //            print(response.result)
 			

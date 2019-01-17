@@ -7,11 +7,33 @@
 //
 
 import UIKit
+import Hero
 import MediaPlayer
 
 class HomeViewController: BaseViewController, SPTSessionManagerDelegate, SPTAppRemoteDelegate, SPTAppRemotePlayerStateDelegate {
 	
 	// MARK: - Properties
+	
+	@IBOutlet var verticalLeftView: UIView!
+	@IBOutlet var verticalLeftViewTopConstraint: NSLayoutConstraint!
+	
+	@IBOutlet var verticalMiddleView: UIView!
+	@IBOutlet var verticalMiddleViewTopConstraint: NSLayoutConstraint!
+	
+	@IBOutlet var verticalRightView: UIView!
+	@IBOutlet var verticalRightViewTopConstraint: NSLayoutConstraint!
+	
+	@IBOutlet var horizontalTopView: UIView!
+	@IBOutlet var horizontalTopViewLeftConstraint: NSLayoutConstraint!
+	
+	@IBOutlet var horizontalMiddleTopView: UIView!
+	@IBOutlet var horizontalMiddleTopViewLeftConstraint: NSLayoutConstraint!
+	
+	@IBOutlet var horizontalMiddleBottomView: UIView!
+	@IBOutlet var horizontalMiddleBottomViewLeftConstraint: NSLayoutConstraint!
+	
+	@IBOutlet var horizontalBottomView: UIView!
+	@IBOutlet var horizontalBottomViewLeftConstraint: NSLayoutConstraint!
 	
 	@IBOutlet var tableView: UITableView!
 	
@@ -57,6 +79,8 @@ class HomeViewController: BaseViewController, SPTSessionManagerDelegate, SPTAppR
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		self.hero.isEnabled = true
 		
 		let userDefaults = UserDefaults.standard
 		
@@ -148,7 +172,15 @@ class HomeViewController: BaseViewController, SPTSessionManagerDelegate, SPTAppR
 				}
 				
 				self.tracks = tracks
-				self.tableView.reloadData()
+//				UIView.transition(with: self.tableView,
+//                  duration: 5.0,
+//                  options: .transitionCrossDissolve,
+//                  animations: { self.tableView.reloadData() })
+				
+//				let indexPaths = (1..<self.tableView.numberOfRows(inSection: 0)).map { NSIndexPath(row: $0, section: 0) }
+//				self.tableView.reloadRows(at: indexPaths as [IndexPath], with: UITableView.RowAnimation.automatic)
+				
+				self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
 			}
         })
     }
