@@ -44,7 +44,7 @@ class HomeViewController: BaseViewController, SPTSessionManagerDelegate, SPTAppR
 	let SpotifyClientID = "a802cee147dd4b108a4dd0238ec7c413"
 	let SpotifyRedirectURL = URL(string: "a-casa-da-rocha://spotify-login-callback")!
 	
-	let requestedScopes: SPTScope = [.appRemoteControl]
+	let requestedScopes: SPTScope = [.appRemoteControl, .streaming]
 	
 	lazy var configuration: SPTConfiguration = {
         let configuration = SPTConfiguration(clientID: SpotifyClientID, redirectURL: SpotifyRedirectURL)
@@ -74,6 +74,8 @@ class HomeViewController: BaseViewController, SPTSessionManagerDelegate, SPTAppR
 	
 	weak var trackProgressTimer: Timer?
 	
+	var loginAttempt = 0
+	
 	
 	// MARK: - Methods
 
@@ -84,10 +86,10 @@ class HomeViewController: BaseViewController, SPTSessionManagerDelegate, SPTAppR
 		
 		let userDefaults = UserDefaults.standard
 		
-		if let spotifyAccessToken = userDefaults.string(forKey: "SpotifyAccessToken"),
+		if let accessToken = userDefaults.string(forKey: "AccessToken"),
 		   let spotifyRefreshToken = userDefaults.string(forKey: "SpotifyRefreshToken") {
 			let spotifyAuth: JSONDictionary = [
-				"access_token": spotifyAccessToken,
+				"access_token": accessToken,
 				"refresh_token": spotifyRefreshToken
 			]
 
@@ -97,8 +99,8 @@ class HomeViewController: BaseViewController, SPTSessionManagerDelegate, SPTAppR
 			print("Stored Spotify Code: " + spotifyCode)
 		
 			spotifyAuthentication(code: spotifyCode)
-		} else {
-			self.sessionManager.initiateSession(with: self.requestedScopes, options: .default)
+		} else if !self.appRemote.isConnected {
+			self.sessionManager.initiateSession(with: self.requestedScopes, options: .clientOnly)
 		}
 		
 //		sessionManager.renewSession()
@@ -112,7 +114,7 @@ class HomeViewController: BaseViewController, SPTSessionManagerDelegate, SPTAppR
 			if error != nil {
 				print(error as Any)
 				
-				self.sessionManager.initiateSession(with: self.requestedScopes, options: .default)
+				self.spotifyRefreshToken()
 			} else {
 				print(result)
 				
@@ -120,7 +122,7 @@ class HomeViewController: BaseViewController, SPTSessionManagerDelegate, SPTAppR
 		
 				do {
 					userDefaults.set(code, forKey: "SpotifyCode")
-					userDefaults.set(result["access_token"], forKey: "SpotifyAccessToken")
+					userDefaults.set(result["access_token"], forKey: "AccessToken")
 					userDefaults.set(result["refresh_token"], forKey: "SpotifyRefreshToken")
 				} catch {
 					print("Not able to save SpotifyAuth")
@@ -133,54 +135,49 @@ class HomeViewController: BaseViewController, SPTSessionManagerDelegate, SPTAppR
 		})
 	}
 	
+	func spotifyRefreshToken() {
+		TracksService.spotifyRefreshToken(completion: { error, result in
+			if error != nil {
+				print(error as Any)
+				
+				if !self.appRemote.isConnected {
+					self.sessionManager.initiateSession(with: self.requestedScopes, options: .clientOnly)
+				}
+			} else {
+				self.listTracks(result)
+			}
+		})
+	}
+	
 	func listTracks(_ result: JSONDictionary) {
-		self.appRemote.connectionParameters.accessToken = result["access_token"] as? String
+//		self.appRemote.connectionParameters.accessToken = result["access_token"] as? String
 		
-		TracksService.listTracks(accessToken: self.appRemote.connectionParameters.accessToken ?? "", completion: { error, tracks in
+		TracksService.listTracks(accessToken: result["access_token"] as? String ?? self.appRemote.connectionParameters.accessToken ?? "", completion: { error, tracks in
             //Error
             if error != nil {
 				print(error as Any)
 				
 				if error?.code == 401 {
-					TracksService.spotifyRefreshToken(completion: { error, result in
-						if error != nil {
-							print(error as Any)
-							
-							self.sessionManager.initiateSession(with: self.requestedScopes, options: .default)
-						} else {
-							let userDefaults = UserDefaults.standard
-		
-							do {
-								userDefaults.set(result["access_token"], forKey: "SpotifyAccessToken")
-							} catch {
-								print("Not able to save SpotifyAccessToken")
-							}
-							
-							userDefaults.synchronize()
-							
-							self.listTracks(result)
-						}
-					})
+					self.spotifyRefreshToken()
 				}
             } else {
 //				print(tracks)
 
+				let userDefaults = UserDefaults.standard
+
 				DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-					if !self.appRemote.isConnected {
-						self.appRemote.connect()
+					if let spotifyAccessToken = userDefaults.string(forKey: "SpotifyAccessToken") {
+						if !self.appRemote.isConnected {
+							self.appRemote.connectionParameters.accessToken = spotifyAccessToken
+							self.appRemote.connect()
+						}
+					} else if !self.appRemote.isConnected {
+						self.sessionManager.initiateSession(with: self.requestedScopes, options: .clientOnly)
 					}
 				}
 				
 				self.tracks = tracks
-//				UIView.transition(with: self.tableView,
-//                  duration: 5.0,
-//                  options: .transitionCrossDissolve,
-//                  animations: { self.tableView.reloadData() })
-				
-//				let indexPaths = (1..<self.tableView.numberOfRows(inSection: 0)).map { NSIndexPath(row: $0, section: 0) }
-//				self.tableView.reloadRows(at: indexPaths as [IndexPath], with: UITableView.RowAnimation.automatic)
-				
-				self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+				self.tableView.reloadData()
 			}
         })
     }
@@ -188,27 +185,35 @@ class HomeViewController: BaseViewController, SPTSessionManagerDelegate, SPTAppR
 	
     // MARK: - Spotify
 	
-	func sessionManager(manager: SPTSessionManager, didInitiate session: SPTSession) {
-		print("success", session)
-		
-		let userDefaults = UserDefaults.standard
-		
-		userDefaults.synchronize()
-
-		self.appRemote.connectionParameters.accessToken = session.accessToken
-		
-		DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-			if !self.appRemote.isConnected {
-				self.appRemote.connect()
-			}
-		}
-	}
 	func sessionManager(manager: SPTSessionManager, didFailWith error: Error) {
 		print("fail spotify", error)
 		print("fail spotify", error.localizedDescription)
 	}
+	
 	func sessionManager(manager: SPTSessionManager, didRenew session: SPTSession) {
 		print("renewed", session)
+	}
+	
+	func sessionManager(manager: SPTSessionManager, didInitiate session: SPTSession) {
+		print("success", session)
+		
+		self.appRemote.connectionParameters.accessToken = session.accessToken
+		
+		let userDefaults = UserDefaults.standard
+		
+		do {
+			userDefaults.set(session.accessToken, forKey: "SpotifyAccessToken")
+		} catch {
+			print("Not able to save SpotifyAccessToken")
+		}
+		
+		userDefaults.synchronize()
+		
+//		DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+//			if !self.appRemote.isConnected {
+		self.appRemote.connect()
+//			}
+//		}
 	}
 	
 	func appRemoteDidEstablishConnection(_ appRemote: SPTAppRemote) {
@@ -230,9 +235,13 @@ class HomeViewController: BaseViewController, SPTSessionManagerDelegate, SPTAppR
 		print("failed", error)
 		
 		DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-			if !self.appRemote.isConnected {
-				self.sessionManager.initiateSession(with: self.requestedScopes, options: .default)
+			if self.loginAttempt <= 3 {
+				if !self.appRemote.isConnected {
+//					self.sessionManager.initiateSession(with: self.requestedScopes, options: .clientOnly)
+				}
 			}
+			
+			self.loginAttempt += 1
 		}
 	}
 	func playerStateDidChange(_ playerState: SPTAppRemotePlayerState) {
@@ -264,6 +273,8 @@ class HomeViewController: BaseViewController, SPTSessionManagerDelegate, SPTAppR
 	@objc func playPauseToggle(_ sender: UIButton) {
 		trackProgressTimer?.invalidate()
 		
+		let userDefaults = UserDefaults.standard
+		
 		if appRemote.isConnected {
 			let selection = UISelectionFeedbackGenerator()
 		
@@ -289,8 +300,11 @@ class HomeViewController: BaseViewController, SPTSessionManagerDelegate, SPTAppR
 			}
 			
 			tableView.reloadData()
-	 	} else {
+	 	} else if let spotifyAccessToken = userDefaults.string(forKey: "SpotifyAccessToken") {
+			self.appRemote.connectionParameters.accessToken = spotifyAccessToken
 			self.appRemote.connect()
+		} else {
+			self.sessionManager.initiateSession(with: self.requestedScopes, options: .clientOnly)
 		}
 	}
 }

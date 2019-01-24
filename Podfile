@@ -22,5 +22,11 @@ target 'A Casa da Rocha' do
     inherit! :search_paths
     # Pods for testing
   end
+  
+  target 'Next Worship Widget' do
+    inherit! :search_paths
+	
+    pod 'Tailor'
+  end
 
 end

@@ -25,7 +25,7 @@ class TrackTableViewCell: UITableViewCell {
 	override func awakeFromNib() {
         super.awakeFromNib()
 		
-		UIView.animate(withDuration: 0.6, delay: 0.2, options: .curveEaseInOut, animations: {
+		UIView.animate(withDuration: 0.8, delay: 0.2, options: .curveEaseInOut, animations: {
 			self.playerView.alpha = 1
 		}, completion: nil)
     }

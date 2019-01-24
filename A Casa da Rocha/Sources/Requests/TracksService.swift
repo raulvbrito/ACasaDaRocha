@@ -75,6 +75,16 @@ class TracksService: BaseService {
 						return
 					}
 					
+					let userDefaults = UserDefaults.standard
+		
+					do {
+						userDefaults.set(result["access_token"], forKey: "AccessToken")
+					} catch {
+						print("Not able to save SpotifyAuth")
+					}
+					
+					userDefaults.synchronize()
+					
 					print(result)
 					
 					completion(nil, result)

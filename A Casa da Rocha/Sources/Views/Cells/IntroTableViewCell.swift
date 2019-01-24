@@ -22,7 +22,7 @@ class IntroTableViewCell: UITableViewCell {
 		}
 		
 		for label in self.fadeLabels {
-			UIView.animate(withDuration: 0.8, delay: 0, options: .curveEaseInOut, animations: {
+			UIView.animate(withDuration: 1, delay: 0, options: .curveEaseInOut, animations: {
 				label.alpha = 1
 			}, completion: nil)
 		}

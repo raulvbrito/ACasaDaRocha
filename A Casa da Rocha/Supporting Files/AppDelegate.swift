@@ -17,39 +17,9 @@ let googleApiKey = "AIzaSyByxP2Kzx0tz_Je-Sjc7-EmKZ1yqj1brCE"
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
-	
-	let SpotifyClientID = "a802cee147dd4b108a4dd0238ec7c413"
-	let SpotifyRedirectURL = URL(string: "a-casa-da-rocha://spotify-login-callback")!
-
-	lazy var configuration: SPTConfiguration = {
-        let configuration = SPTConfiguration(clientID: SpotifyClientID, redirectURL: SpotifyRedirectURL)
-		
-		// Set the playURI to a non-nil value so that Spotify plays music after authenticating and App Remote can connect
-        // otherwise another app switch will be required
-        configuration.playURI = ""
-
-        configuration.tokenSwapURL = URL(string: "https://a-casa-da-rocha.herokuapp.com/api/token")
-        configuration.tokenRefreshURL = URL(string: "https://a-casa-da-rocha.herokuapp.com/api/refresh_token")
-        return configuration
-    }()
-	
-	lazy var sessionManager: SPTSessionManager = {
-		let manager = SPTSessionManager(configuration: self.configuration, delegate: self as? SPTSessionManagerDelegate)
-	  return manager
-	}()
-	
-	lazy var appRemote: SPTAppRemote = {
-	  let appRemote = SPTAppRemote(configuration: self.configuration, logLevel: .debug)
-		appRemote.delegate = self as? SPTAppRemoteDelegate
-	  return appRemote
-	}()
-	
-//	var homeViewController = HomeViewController()
+	lazy var homeViewController = HomeViewController()
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//		let requestedScopes: SPTScope = [.appRemoteControl]
-//        self.sessionManager.initiateSession(with: requestedScopes, options: .default)
-
 		GMSServices.provideAPIKey(googleApiKey)
 
 		UserDefaults.standard.synchronize()
@@ -58,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 	
 	func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-		let params = self.appRemote.authorizationParameters(from: url)
+		let params = homeViewController.appRemote.authorizationParameters(from: url)
 		
 		if let code = params?["code"] {
 			print("New Spotify Code: " + code)
@@ -73,24 +43,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 			userDefaults.synchronize()
 			
-			if let tabBarController = self.window?.rootViewController as? UITabBarController,
+			DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+				if let tabBarController = self.window?.rootViewController?.presentedViewController as? UITabBarController,
+				   let navigationController = tabBarController.viewControllers?[0] as? UINavigationController,
+				   let homeViewController = navigationController.visibleViewController as? HomeViewController {
+					homeViewController.sessionManager.application(app, open: url, options: options)
+					
+					homeViewController.spotifyAuthentication(code: code)
+				}
+			}
+		} else if let tabBarController = self.window?.rootViewController?.presentedViewController as? UITabBarController,
 			   let navigationController = tabBarController.viewControllers?[0] as? UINavigationController,
 			   let homeViewController = navigationController.visibleViewController as? HomeViewController {
-				homeViewController.spotifyAuthentication(code: code)
-				
-				self.sessionManager.application(app, open: url, options: options)
-			}
-		} else {
-			self.sessionManager.application(app, open: url, options: options)
+				homeViewController.sessionManager.application(app, open: url, options: options)
 		}
 		
         return true
     }
 
 	func applicationWillResignActive(_ application: UIApplication) {
-		if self.appRemote.isConnected {
-//			self.appRemote.disconnect()
-	  	}
+		if let tabBarController = self.window?.rootViewController?.presentedViewController as? UITabBarController,
+		   let navigationController = tabBarController.viewControllers?[0] as? UINavigationController,
+		   let homeViewController = navigationController.visibleViewController as? HomeViewController {
+		   	self.homeViewController = homeViewController
+		}
+		
+		if homeViewController.appRemote.isConnected {
+			homeViewController.appRemote.disconnect()
+		}
 	}
 
 	func applicationDidEnterBackground(_ application: UIApplication) {
@@ -105,11 +85,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func applicationDidBecomeActive(_ application: UIApplication) {
 		let userDefaults = UserDefaults.standard
 		
-		if let spotifyAccessToken = userDefaults.string(forKey: "SpotifyAccessToken") {
-			self.appRemote.connectionParameters.accessToken = spotifyAccessToken
+//		if let spotifyAccessToken = userDefaults.string(forKey: "SpotifyAccessToken") {
+		if let _ = homeViewController.appRemote.connectionParameters.accessToken {
+			if let tabBarController = self.window?.rootViewController?.presentedViewController as? UITabBarController,
+			   let navigationController = tabBarController.viewControllers?[0] as? UINavigationController,
+			   let homeViewController = navigationController.visibleViewController as? HomeViewController {
+				self.homeViewController = homeViewController
+			}
 			
-			if !self.appRemote.isConnected {
-				self.appRemote.connect()
+			if !homeViewController.appRemote.isConnected {
+				self.homeViewController.appRemote.connect()
 			}
 		}
 	}

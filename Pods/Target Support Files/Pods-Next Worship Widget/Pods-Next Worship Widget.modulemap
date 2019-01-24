@@ -1,0 +1,6 @@
+framework module Pods_Next_Worship_Widget {
+  umbrella header "Pods-Next Worship Widget-umbrella.h"
+
+  export *
+  module * { export * }
+}

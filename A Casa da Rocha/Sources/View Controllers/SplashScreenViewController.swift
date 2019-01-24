@@ -52,51 +52,22 @@ class SplashScreenViewController: UIViewController {
     }
 
 	func logoAnimation(reverse: Bool) {
-		let duration = 0.4
+		let duration = 1.0
 		
 		if !reverse {
-			UIView.animate(withDuration: duration, animations: {
+			UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
+				self.verticalLeftViewTopConstraint.constant = 47
+				self.horizontalMiddleTopViewLeftConstraint.constant = 17
 				self.horizontalTopViewLeftConstraint.constant = 41
+				self.verticalMiddleViewTopConstraint.constant = 24
+				self.horizontalMiddleBottomViewLeftConstraint.constant = 55
+				self.verticalRightViewTopConstraint.constant = 59
+				self.horizontalBottomViewLeftConstraint.constant = 41
 				
 				self.view.layoutIfNeeded()
 			}) { (Bool) in
-				UIView.animate(withDuration: duration, animations: {
-					self.verticalLeftViewTopConstraint.constant = 47
-					
-					self.view.layoutIfNeeded()
-				}) { (Bool) in
-					UIView.animate(withDuration: duration, animations: {
-						self.verticalMiddleViewTopConstraint.constant = 24
-						
-						self.view.layoutIfNeeded()
-					}) { (Bool) in
-						UIView.animate(withDuration: duration, animations: {
-							self.horizontalMiddleTopViewLeftConstraint.constant = 17
-							
-							self.view.layoutIfNeeded()
-						}) { (Bool) in
-							UIView.animate(withDuration: duration, animations: {
-								self.horizontalMiddleBottomViewLeftConstraint.constant = 55
-								
-								self.view.layoutIfNeeded()
-							}) { (Bool) in
-								UIView.animate(withDuration: duration, animations: {
-									self.verticalRightViewTopConstraint.constant = 59
-									
-									self.view.layoutIfNeeded()
-								}) { (Bool) in
-									UIView.animate(withDuration: duration, animations: {
-										self.horizontalBottomViewLeftConstraint.constant = 41
-										
-										self.view.layoutIfNeeded()
-									}) { (Bool) in
-										self.performSegue(withIdentifier: "HomeSegue", sender: nil)
-									}
-								}
-							}
-						}
-					}
-				}
+				_ = UITableViewCell() as? IntroTableViewCell
+				self.performSegue(withIdentifier: "HomeSegue", sender: nil)
 			}
 		} else {
 			verticalLeftViewTopConstraint.constant = 292
