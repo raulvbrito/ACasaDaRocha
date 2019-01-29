@@ -51,7 +51,7 @@ class HomeViewController: BaseViewController, SPTSessionManagerDelegate, SPTAppR
 		
 		// Set the playURI to a non-nil value so that Spotify plays music after authenticating and App Remote can connect
         // otherwise another app switch will be required
-        configuration.playURI = ""
+        configuration.playURI = "spotify:track:5XSKC4d0y0DfcGbvDOiL93"
 
         configuration.tokenSwapURL = URL(string: "https://a-casa-da-rocha.herokuapp.com/api/token")
         configuration.tokenRefreshURL = URL(string: "https://a-casa-da-rocha.herokuapp.com/api/refresh_token")
@@ -166,13 +166,15 @@ class HomeViewController: BaseViewController, SPTSessionManagerDelegate, SPTAppR
 				let userDefaults = UserDefaults.standard
 
 				DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-					if let spotifyAccessToken = userDefaults.string(forKey: "SpotifyAccessToken") {
-						if !self.appRemote.isConnected {
+					if !self.appRemote.isConnected {
+						if let _ = self.appRemote.connectionParameters.accessToken {
+							self.appRemote.connect()
+						} else if let spotifyAccessToken = userDefaults.string(forKey: "SpotifyAccessToken") {
 							self.appRemote.connectionParameters.accessToken = spotifyAccessToken
 							self.appRemote.connect()
+						} else {
+							self.sessionManager.initiateSession(with: self.requestedScopes, options: .clientOnly)
 						}
-					} else if !self.appRemote.isConnected {
-						self.sessionManager.initiateSession(with: self.requestedScopes, options: .clientOnly)
 					}
 				}
 				
@@ -300,7 +302,9 @@ class HomeViewController: BaseViewController, SPTSessionManagerDelegate, SPTAppR
 			}
 			
 			tableView.reloadData()
-	 	} else if let spotifyAccessToken = userDefaults.string(forKey: "SpotifyAccessToken") {
+	 	} else if let _ = self.appRemote.connectionParameters.accessToken {
+			self.appRemote.connect()
+		} else if let spotifyAccessToken = userDefaults.string(forKey: "SpotifyAccessToken") {
 			self.appRemote.connectionParameters.accessToken = spotifyAccessToken
 			self.appRemote.connect()
 		} else {

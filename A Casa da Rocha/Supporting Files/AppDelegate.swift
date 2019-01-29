@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		UserDefaults.standard.synchronize()
 		
+		UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "ProximaNova-Semibold", size: 10)!], for: .normal)
+		
 		return true
 	}
 	

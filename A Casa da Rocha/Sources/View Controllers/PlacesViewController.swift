@@ -106,7 +106,7 @@ extension PlacesViewController: UITableViewDataSource, UITableViewDelegate {
 		cell?.navigationButton.tag = indexPath.row
 		cell?.navigationButton.addTarget(self, action: #selector(navigate(_:)), for: .touchUpInside)
 		
-//		cell?.mapView.isUserInteractionEnabled = false
+		cell?.mapView.isUserInteractionEnabled = false
 		
 		copyPlaceMarkerView.viewWithTag(1)?.clipsToBounds = true
 		copyPlaceMarkerView.viewWithTag(1)?.layer.cornerRadius = 25

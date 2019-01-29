@@ -13,9 +13,17 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+		UIFont.familyNames.forEach({ familyName in
+            let fontNames = UIFont.fontNames(forFamilyName: familyName)
+			// print(familyName, fontNames)
+        })
+		
+		// Custom fonts
+		// Proxima Nova ["ProximaNova-Extrabld", "ProximaNova-Light", "ProximaNova-Black", "ProximaNova-Semibold", "ProximaNova-RegularIt", "ProximaNova-BoldIt", "ProximaNova-Bold", "ProximaNova-Thin", "ProximaNova-SemiboldIt", "ProximaNova-Regular", "ProximaNova-LightIt"]
+		
         self.navigationController?.navigationBar.barStyle = UIBarStyle.black
 		self.navigationController?.navigationBar.tintColor = UIColor.white
-		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "ProximaNova-Semibold", size: 18)!]
 		self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
 		self.navigationController?.navigationBar.shadowImage = UIImage()
 		self.navigationController?.navigationBar.isTranslucent = false
@@ -25,6 +33,7 @@ class BaseViewController: UIViewController {
 		
 		if #available(iOS 11.0, *) {
 			self.navigationController?.navigationBar.prefersLargeTitles = true
+			self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "ProximaNova-Bold", size: 34)!]
 		}
     }
 }

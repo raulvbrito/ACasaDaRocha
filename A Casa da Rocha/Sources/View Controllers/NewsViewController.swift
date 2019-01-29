@@ -12,10 +12,16 @@ class NewsViewController: BaseViewController {
 
 	@IBOutlet var tableView: UITableView!
 	
+	var selectedCell: GroupCollectionViewCell?
+	
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+	
+//    override func viewWillAppear(_ animated: Bool) {
+//		tableView.reloadData()
+//	}
+	
 }
 
 
@@ -31,6 +37,8 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GroupsTableViewCell", for: indexPath) as? GroupsTableViewCell
 		
         cell?.collectionView.tag = indexPath.item
+		
+        cell?.collectionView.hero.modifiers = [.cascade]
 		
         cell?.collectionView.reloadData()
 		
@@ -75,6 +83,8 @@ extension NewsViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroupCollectionViewCell", for: indexPath) as? GroupCollectionViewCell
 		
+		cell?.hero.modifiers = [.fade, .scale(0.5)]
+		
         switch indexPath.row {
         	case 0:
 				cell?.cardView.backgroundColor = UIColor(red: 17/255, green: 26/255, blue: 40/255, alpha: 1) //UIColor(red: 21/255, green: 72/255, blue: 144/255, alpha: 1)
@@ -85,6 +95,13 @@ extension NewsViewController: UICollectionViewDataSource, UICollectionViewDelega
 				cell?.logoImageView.image = UIImage(named: "galera_logo_branco")
 				cell?.logoImageViewCenterYConstraint.constant = 0
 				cell?.hashtagImageView.isHidden = false
+			case 1:
+				cell?.cardView.backgroundColor = UIColor(red: 0/255, green: 154/255, blue: 178/255, alpha: 1)
+				cell?.roundedLogoView.backgroundColor = UIColor(red: 24/255, green: 0/255, blue: 38/255, alpha: 1)
+				cell?.ageRangeLabel.text = "18 - 25"
+				cell?.nextEventLabel.textColor = UIColor(red: 24/255, green: 0/255, blue: 38/255, alpha: 1)
+				cell?.eventNameLabel.text = "Encontro de Jovens"
+				cell?.logoImageView.image = UIImage(named: "skup_logo_branco")
 			case 2:
 				cell?.cardView.backgroundColor = UIColor(red: 38/255, green: 38/255, blue: 38/255, alpha: 1)
 				cell?.roundedLogoView.backgroundColor = UIColor(red: 17/255, green: 11/255, blue: 9/255, alpha: 1)
@@ -100,14 +117,36 @@ extension NewsViewController: UICollectionViewDataSource, UICollectionViewDelega
 		let style = NSMutableParagraphStyle()
 		style.lineSpacing = 0
 		style.minimumLineHeight = 0
-		style.lineHeightMultiple = 0.85
+		style.lineHeightMultiple = 0.9
 		attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: style, range: NSRange(location: 0, length: cell?.eventNameLabel.text?.characters.count ?? 0))
 		cell?.eventNameLabel.attributedText = attrString
+		
+//		DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
+//			UIView.animate(withDuration: 1, delay: 0, options: .curveEaseInOut, animations: {
+//				print("returned")
+//
+//				cell?.roundedLogoViewBottomConstraint.constant = -40
+//				cell?.roundedLogoViewTrailingConstraint.constant = -10
+//
+//				self.view.layoutIfNeeded()
+//			}, completion: nil)
+//		}
 		
         return cell!
     }
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		self.performSegue(withIdentifier: "GroupSegue", sender: nil)
+		
+//		selectedCell = collectionView.cellForItem(at: indexPath) as? GroupCollectionViewCell
+		
+//		DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+//			print("gone up")
+//
+//			self.selectedCell?.roundedLogoViewBottomConstraint.constant = 10
+//			self.selectedCell?.roundedLogoViewTrailingConstraint.constant = 10
+//
+//			self.view.layoutIfNeeded()
+//		}
 	}
 }

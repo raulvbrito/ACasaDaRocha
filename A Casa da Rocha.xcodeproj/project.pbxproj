@@ -34,6 +34,28 @@
 		41A345F421F93DCE006C40AF /* GroupGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A345F321F93DCE006C40AF /* GroupGalleryCollectionViewCell.swift */; };
 		41C2D5DF21F12E0E00FA06F4 /* GroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C2D5DE21F12E0E00FA06F4 /* GroupCollectionViewCell.swift */; };
 		41C2D5E121F12FD600FA06F4 /* GroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C2D5E021F12FD600FA06F4 /* GroupsTableViewCell.swift */; };
+		41C6E21521FA672D004CDD23 /* proxima-nova-black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41C6E21121FA672C004CDD23 /* proxima-nova-black.otf */; };
+		41C6E21621FA672D004CDD23 /* proxima-nova-black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41C6E21121FA672C004CDD23 /* proxima-nova-black.otf */; };
+		41C6E21721FA672D004CDD23 /* proxima-nova-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41C6E21221FA672C004CDD23 /* proxima-nova-bold.otf */; };
+		41C6E21821FA672D004CDD23 /* proxima-nova-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41C6E21221FA672C004CDD23 /* proxima-nova-bold.otf */; };
+		41C6E21921FA672D004CDD23 /* proxima-nova-bold-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41C6E21321FA672D004CDD23 /* proxima-nova-bold-italic.otf */; };
+		41C6E21A21FA672D004CDD23 /* proxima-nova-bold-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41C6E21321FA672D004CDD23 /* proxima-nova-bold-italic.otf */; };
+		41C6E21B21FA672D004CDD23 /* proxima-nova.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41C6E21421FA672D004CDD23 /* proxima-nova.otf */; };
+		41C6E21C21FA672D004CDD23 /* proxima-nova.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41C6E21421FA672D004CDD23 /* proxima-nova.otf */; };
+		41C6E22221FC10C6004CDD23 /* proxima-nova-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41C6E21D21FC10C4004CDD23 /* proxima-nova-italic.otf */; };
+		41C6E22321FC10C6004CDD23 /* proxima-nova-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41C6E21D21FC10C4004CDD23 /* proxima-nova-italic.otf */; };
+		41C6E22421FC10C6004CDD23 /* proxima-nova-extrabold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41C6E21E21FC10C4004CDD23 /* proxima-nova-extrabold.otf */; };
+		41C6E22521FC10C6004CDD23 /* proxima-nova-extrabold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41C6E21E21FC10C4004CDD23 /* proxima-nova-extrabold.otf */; };
+		41C6E22621FC10C6004CDD23 /* proxima-nova-semibold-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41C6E21F21FC10C5004CDD23 /* proxima-nova-semibold-italic.otf */; };
+		41C6E22721FC10C6004CDD23 /* proxima-nova-semibold-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41C6E21F21FC10C5004CDD23 /* proxima-nova-semibold-italic.otf */; };
+		41C6E22821FC10C6004CDD23 /* proxima-nova-thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41C6E22021FC10C5004CDD23 /* proxima-nova-thin.otf */; };
+		41C6E22921FC10C6004CDD23 /* proxima-nova-thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41C6E22021FC10C5004CDD23 /* proxima-nova-thin.otf */; };
+		41C6E22A21FC10C6004CDD23 /* proxima-nova-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41C6E22121FC10C6004CDD23 /* proxima-nova-light.otf */; };
+		41C6E22B21FC10C6004CDD23 /* proxima-nova-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41C6E22121FC10C6004CDD23 /* proxima-nova-light.otf */; };
+		41C6E22D21FC11E3004CDD23 /* proxima-nova-semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41C6E22C21FC11E3004CDD23 /* proxima-nova-semibold.otf */; };
+		41C6E22E21FC11E3004CDD23 /* proxima-nova-semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41C6E22C21FC11E3004CDD23 /* proxima-nova-semibold.otf */; };
+		41C6E23021FC127A004CDD23 /* proxima-nova-light-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41C6E22F21FC127A004CDD23 /* proxima-nova-light-italic.otf */; };
+		41C6E23121FC127A004CDD23 /* proxima-nova-light-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 41C6E22F21FC127A004CDD23 /* proxima-nova-light-italic.otf */; };
 		41C7396321BF28A40069C80C /* SectionTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C7396221BF28A40069C80C /* SectionTitleTableViewCell.swift */; };
 		41C7396621BF35010069C80C /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C7396521BF35010069C80C /* BaseService.swift */; };
 		41C7396821BF36530069C80C /* TracksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C7396721BF36530069C80C /* TracksService.swift */; };
@@ -125,6 +147,17 @@
 		41A345F321F93DCE006C40AF /* GroupGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		41C2D5DE21F12E0E00FA06F4 /* GroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCollectionViewCell.swift; sourceTree = "<group>"; };
 		41C2D5E021F12FD600FA06F4 /* GroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewCell.swift; sourceTree = "<group>"; };
+		41C6E21121FA672C004CDD23 /* proxima-nova-black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "proxima-nova-black.otf"; sourceTree = "<group>"; };
+		41C6E21221FA672C004CDD23 /* proxima-nova-bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "proxima-nova-bold.otf"; sourceTree = "<group>"; };
+		41C6E21321FA672D004CDD23 /* proxima-nova-bold-italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "proxima-nova-bold-italic.otf"; sourceTree = "<group>"; };
+		41C6E21421FA672D004CDD23 /* proxima-nova.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "proxima-nova.otf"; sourceTree = "<group>"; };
+		41C6E21D21FC10C4004CDD23 /* proxima-nova-italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "proxima-nova-italic.otf"; sourceTree = "<group>"; };
+		41C6E21E21FC10C4004CDD23 /* proxima-nova-extrabold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "proxima-nova-extrabold.otf"; sourceTree = "<group>"; };
+		41C6E21F21FC10C5004CDD23 /* proxima-nova-semibold-italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "proxima-nova-semibold-italic.otf"; sourceTree = "<group>"; };
+		41C6E22021FC10C5004CDD23 /* proxima-nova-thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "proxima-nova-thin.otf"; sourceTree = "<group>"; };
+		41C6E22121FC10C6004CDD23 /* proxima-nova-light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "proxima-nova-light.otf"; sourceTree = "<group>"; };
+		41C6E22C21FC11E3004CDD23 /* proxima-nova-semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "proxima-nova-semibold.otf"; sourceTree = "<group>"; };
+		41C6E22F21FC127A004CDD23 /* proxima-nova-light-italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "proxima-nova-light-italic.otf"; sourceTree = "<group>"; };
 		41C7396221BF28A40069C80C /* SectionTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleTableViewCell.swift; sourceTree = "<group>"; };
 		41C7396521BF35010069C80C /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		41C7396721BF36530069C80C /* TracksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksService.swift; sourceTree = "<group>"; };
@@ -254,6 +287,7 @@
 				416AFEE421B85E1C00F9E8B6 /* A_Casa_da_Rocha.xcdatamodeld */,
 				416AFEE721B85E1E00F9E8B6 /* Assets.xcassets */,
 				41EB3E5521EE482B0044F9DD /* dark.json */,
+				41C6E21021FA6710004CDD23 /* Fonts */,
 				416AFEEC21B85E1E00F9E8B6 /* Info.plist */,
 				416AFF0E21B85E9600F9E8B6 /* Resources */,
 				416AFF0F21B85EA100F9E8B6 /* Sources */,
@@ -380,6 +414,24 @@
 				41C88B3521E8F8320086AA5B /* Utils.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		41C6E21021FA6710004CDD23 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				41C6E21121FA672C004CDD23 /* proxima-nova-black.otf */,
+				41C6E21321FA672D004CDD23 /* proxima-nova-bold-italic.otf */,
+				41C6E21221FA672C004CDD23 /* proxima-nova-bold.otf */,
+				41C6E21E21FC10C4004CDD23 /* proxima-nova-extrabold.otf */,
+				41C6E21D21FC10C4004CDD23 /* proxima-nova-italic.otf */,
+				41C6E22121FC10C6004CDD23 /* proxima-nova-light.otf */,
+				41C6E22F21FC127A004CDD23 /* proxima-nova-light-italic.otf */,
+				41C6E22C21FC11E3004CDD23 /* proxima-nova-semibold.otf */,
+				41C6E21F21FC10C5004CDD23 /* proxima-nova-semibold-italic.otf */,
+				41C6E22021FC10C5004CDD23 /* proxima-nova-thin.otf */,
+				41C6E21421FA672D004CDD23 /* proxima-nova.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		41C7396421BF34E30069C80C /* Requests */ = {
@@ -524,8 +576,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41C6E21C21FA672D004CDD23 /* proxima-nova.otf in Resources */,
+				41C6E22E21FC11E3004CDD23 /* proxima-nova-semibold.otf in Resources */,
+				41C6E21A21FA672D004CDD23 /* proxima-nova-bold-italic.otf in Resources */,
+				41C6E21621FA672D004CDD23 /* proxima-nova-black.otf in Resources */,
 				41617EBA21F6999C00E8EED5 /* Assets.xcassets in Resources */,
+				41C6E22521FC10C6004CDD23 /* proxima-nova-extrabold.otf in Resources */,
+				41C6E22721FC10C6004CDD23 /* proxima-nova-semibold-italic.otf in Resources */,
+				41C6E22321FC10C6004CDD23 /* proxima-nova-italic.otf in Resources */,
+				41C6E23121FC127A004CDD23 /* proxima-nova-light-italic.otf in Resources */,
+				41C6E22921FC10C6004CDD23 /* proxima-nova-thin.otf in Resources */,
 				41617EB121F6957100E8EED5 /* MainInterface.storyboard in Resources */,
+				41C6E21821FA672D004CDD23 /* proxima-nova-bold.otf in Resources */,
+				41C6E22B21FC10C6004CDD23 /* proxima-nova-light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,10 +596,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41C6E22821FC10C6004CDD23 /* proxima-nova-thin.otf in Resources */,
+				41C6E21B21FA672D004CDD23 /* proxima-nova.otf in Resources */,
+				41C6E21521FA672D004CDD23 /* proxima-nova-black.otf in Resources */,
+				41C6E22621FC10C6004CDD23 /* proxima-nova-semibold-italic.otf in Resources */,
+				41C6E22421FC10C6004CDD23 /* proxima-nova-extrabold.otf in Resources */,
 				416AFEEB21B85E1E00F9E8B6 /* LaunchScreen.storyboard in Resources */,
 				416AFEE821B85E1E00F9E8B6 /* Assets.xcassets in Resources */,
+				41C6E22D21FC11E3004CDD23 /* proxima-nova-semibold.otf in Resources */,
+				41C6E22A21FC10C6004CDD23 /* proxima-nova-light.otf in Resources */,
+				41C6E21721FA672D004CDD23 /* proxima-nova-bold.otf in Resources */,
 				416AFEE321B85E1C00F9E8B6 /* Main.storyboard in Resources */,
+				41C6E21921FA672D004CDD23 /* proxima-nova-bold-italic.otf in Resources */,
 				416C9FD321EE767B0098CC39 /* PlaceMarkerView.xib in Resources */,
+				41C6E23021FC127A004CDD23 /* proxima-nova-light-italic.otf in Resources */,
+				41C6E22221FC10C6004CDD23 /* proxima-nova-italic.otf in Resources */,
 				41EB3E5621EE482B0044F9DD /* dark.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -590,6 +664,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-A Casa da Rocha/Pods-A Casa da Rocha-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Tailor/Tailor.framework",
@@ -599,6 +674,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Tailor.framework",

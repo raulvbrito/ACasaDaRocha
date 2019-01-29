@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.8.0)
+  - FSCalendar (2.8.0)
   - GoogleMaps (2.7.0):
     - GoogleMaps/Maps (= 2.7.0)
   - GoogleMaps/Base (2.7.0)
@@ -15,6 +16,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - FSCalendar
   - GoogleMaps
   - GooglePlaces
   - Hero
@@ -24,6 +26,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - FSCalendar
     - GoogleMaps
     - GooglePlaces
     - Hero
@@ -32,12 +35,13 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  FSCalendar: 3a5ed3636e2ba1b83ebebfcf0c2603105a6f5efe
   GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
   GooglePlaces: 3d06e6c99654545b4738ce49648745779c25f2ef
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   Tailor: 4fb574e8815d076abbf2bd7ffdbf4b14103fe17c
 
-PODFILE CHECKSUM: 1f134b89424a89ffe6a6dec52cdf3ec8bbd8e8cb
+PODFILE CHECKSUM: f740138c5d93b33722f8ff4a7f11206aa45f8833
 
 COCOAPODS: 1.5.3

@@ -28,7 +28,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>9</string>
+	<string>14</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>comgooglemaps</string>
@@ -39,6 +39,20 @@
 	<true/>
 	<key>NSCalendarsUsageDescription</key>
 	<string>Precisamos de acesso ao calendário para adicionar este evento</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>proxima-nova-light-italic.otf</string>
+		<string>proxima-nova-semibold.otf</string>
+		<string>proxima-nova-extrabold.otf</string>
+		<string>proxima-nova-italic.otf</string>
+		<string>proxima-nova-light.otf</string>
+		<string>proxima-nova-semibold-italic.otf</string>
+		<string>proxima-nova-thin.otf</string>
+		<string>proxima-nova-black.otf</string>
+		<string>proxima-nova-bold-italic.otf</string>
+		<string>proxima-nova-bold.otf</string>
+		<string>proxima-nova.otf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

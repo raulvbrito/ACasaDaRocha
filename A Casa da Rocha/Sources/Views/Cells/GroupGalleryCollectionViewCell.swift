@@ -13,4 +13,12 @@ class GroupGalleryCollectionViewCell: UICollectionViewCell {
 	@IBOutlet var shadowView: UIView!
 	@IBOutlet var galleryImageView: UIImageView!
 	
+	override func awakeFromNib() {
+		super.awakeFromNib()
+		
+		self.contentView.autoresizingMask.insert(.flexibleHeight)
+		self.contentView.autoresizingMask.insert(.flexibleWidth)
+    	self.contentView.translatesAutoresizingMaskIntoConstraints = true
+	}
+	
 }
