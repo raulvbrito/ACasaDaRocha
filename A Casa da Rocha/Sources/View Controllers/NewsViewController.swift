@@ -14,13 +14,25 @@ class NewsViewController: BaseViewController {
 	
 	var selectedCell: GroupCollectionViewCell?
 	
+	var config: Group!
+	
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 	
-//    override func viewWillAppear(_ animated: Bool) {
-//		tableView.reloadData()
-//	}
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if let groupViewController = segue.destination as? GroupViewController {
+			print(self.config)
+			
+			let configData = [
+				"logo": self.selectedCell?.logoImageView.image ?? UIImage(),
+				"main_color": self.selectedCell?.roundedLogoView.backgroundColor ?? .black,
+				"secondary_color": self.selectedCell?.cardView.backgroundColor ?? .white
+			] as [String : Any]
+		
+			groupViewController.config = Group(configData)
+		}
+	}
 	
 }
 
@@ -87,10 +99,10 @@ extension NewsViewController: UICollectionViewDataSource, UICollectionViewDelega
 		
         switch indexPath.row {
         	case 0:
-				cell?.cardView.backgroundColor = UIColor(red: 17/255, green: 26/255, blue: 40/255, alpha: 1) //UIColor(red: 21/255, green: 72/255, blue: 144/255, alpha: 1)
-				cell?.roundedLogoView.backgroundColor = UIColor(red: 246/255, green: 36/255, blue: 0/255, alpha: 1)
+				cell?.cardView.backgroundColor = UIColor(red: 246/255, green: 36/255, blue: 0/255, alpha: 1) //UIColor(red: 21/255, green: 72/255, blue: 144/255, alpha: 1)
+				cell?.roundedLogoView.backgroundColor = UIColor(red: 17/255, green: 26/255, blue: 40/255, alpha: 1)
 				cell?.ageRangeLabel.text = "12 - 17"
-				cell?.nextEventLabel.textColor = UIColor(red: 255/255, green: 102/255, blue: 0/255, alpha: 1)
+				cell?.nextEventLabel.textColor = UIColor(red: 17/255, green: 26/255, blue: 40/255, alpha: 1)
 				cell?.eventNameLabel.text = "Encontro da Galera"
 				cell?.logoImageView.image = UIImage(named: "galera_logo_branco")
 				cell?.logoImageViewCenterYConstraint.constant = 0
@@ -136,6 +148,8 @@ extension NewsViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		selectedCell = collectionView.cellForItem(at: indexPath) as? GroupCollectionViewCell
+	
 		self.performSegue(withIdentifier: "GroupSegue", sender: nil)
 		
 //		selectedCell = collectionView.cellForItem(at: indexPath) as? GroupCollectionViewCell

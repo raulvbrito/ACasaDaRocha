@@ -49,17 +49,46 @@ class GroupViewController: UIViewController {
 	@IBOutlet var leftArrowBarViewTopConstraint: NSLayoutConstraint!
 	@IBOutlet var eventCountView: UIView!
 	@IBOutlet var eventCountViewLeadingConstraint: NSLayoutConstraint!
+	@IBOutlet var eventCountViewTrailingConstraint: NSLayoutConstraint!
+	@IBOutlet var eventCountButton: UIButton!
 	@IBOutlet var closedEventsLabel: UILabel!
 	@IBOutlet var openEventsLabel: UILabel!
 	@IBOutlet var panView: UIView!
 	@IBOutlet var calendarView: FSCalendar!
 	@IBOutlet var calendarViewTopConstraint: NSLayoutConstraint!
+	@IBOutlet var tableView: UITableView!
+	@IBOutlet var tableViewBottomConstraint: NSLayoutConstraint!
+	@IBOutlet var noEventsLabel: UILabel!
+	
+	var events = [Event]()
+	
+	var filteredEvents = [Event]()
+	
+	var config: Group!
 	
 	var transitionAnimator = UIViewPropertyAnimator()
 	
 	private let bottomViewOffset: CGFloat = 621
 	
 	private var bottomOffset: CGFloat = 100
+	
+	var datesWithEvent = ["2019-01-03", "2019-01-06", "2019-01-12", "2019-01-25", "2019-01-30"]
+
+	var datesWithMultipleEvents = ["2019-01-08", "2019-01-16", "2019-01-20", "2019-01-28", "2019-01-30"]
+
+	var dateFormatter: DateFormatter = {
+		let formatter = DateFormatter()
+		formatter.dateFormat = "yyyy-MM-dd HH:mm"
+		return formatter
+	}()
+	
+	let timeFormatter = DateFormatter()
+	
+	let formatter: DateFormatter = {
+		let formatter = DateFormatter()
+		formatter.dateFormat = "yyyy-MM-dd"
+		return formatter
+	}()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,6 +118,7 @@ class GroupViewController: UIViewController {
 			collectionView.reloadData()
 		}
 		
+		colorConfig()
 		calendarSetup()
     }
 	
@@ -122,14 +152,65 @@ class GroupViewController: UIViewController {
 	}
 	
 	func calendarSetup() {
+		let event = [
+        	"id": 0,
+        	"name": "Culto da Manhã",
+        	"description": "Culto da manhã na Casa da Rocha",
+        	"location": "A Casa da Rocha - Independência",
+        	"image": "dark_logo",
+        	"start_date": "2019-01-31 11:00",
+        	"duration": 5400.0,
+        	"added": false
+			] as [String : Any]
+		
+		let event1 = [
+        	"id": 1,
+        	"name": "Encontro de Jovens",
+        	"description": "Culto dos jovens na Casa da Rocha",
+        	"location": "A Casa da Rocha - Independência",
+        	"image": "skup_logo_branco",
+        	"start_date": "2019-01-27 19:00",
+        	"duration": 7200.0,
+        	"added": false
+			] as [String : Any]
+		
+		events.append(Event.init(event))
+		events.append(Event.init(event1))
+		events.append(Event.init(event))
+		events.append(Event.init(event1))
+		events.append(Event.init(event))
+		events.append(Event.init(event1))
+		events.append(Event.init(event))
+		events.append(Event.init(event1))
+		
 		calendarView.scrollDirection = .horizontal
 		calendarView.scope = .week
-		calendarView.appearance.headerTitleFont = UIFont(name: "ProximaNova-Semibold", size: 24)!
+		calendarView.appearance.headerTitleFont = UIFont(name: "ProximaNova-Semibold", size: 30)!
 		calendarView.appearance.titleFont = UIFont(name: "ProximaNova-Semibold", size: 14)!
 		calendarView.appearance.weekdayFont = UIFont(name: "ProximaNova-Regular", size: 12)!
 		calendarView.locale = Locale(identifier: "pt_BR")
 		
-		print(calendarView.selectedDate)
+		calendarView.select(Date())
+		
+		updateEvents()
+		
+		calendarView.reloadData()
+	}
+	
+	func colorConfig() {
+		logoImageView.image = config.logo
+	
+		backgroundView.backgroundColor = config.mainColor
+		collectionView.backgroundColor = config.mainColor
+		calendarView.appearance.headerTitleColor = config.mainColor
+		calendarView.appearance.titleTodayColor = config.mainColor
+		calendarView.appearance.selectionColor = config.mainColor
+		calendarView.appearance.todaySelectionColor = config.mainColor
+		
+		followButton.backgroundColor = config.secondaryColor
+		eventCountView.backgroundColor = config.secondaryColor
+		calendarView.appearance.eventDefaultColor = config.secondaryColor
+		calendarView.appearance.eventSelectionColor = config.secondaryColor
 	}
 	
 	private var currentState: BottomViewState = .closed
@@ -160,7 +241,9 @@ class GroupViewController: UIViewController {
                 self.closedEventsLabel.transform = CGAffineTransform(scaleX: 1.6, y: 1.6).concatenating(CGAffineTransform(translationX: 0, y: 0))
                 self.openEventsLabel.transform = .identity
 				
-                self.eventCountViewLeadingConstraint.constant = 12
+				self.eventCountViewTrailingConstraint.priority = UILayoutPriority(rawValue: 999)
+				self.eventCountViewLeadingConstraint.priority = UILayoutPriority(rawValue: 250)
+                self.eventCountViewTrailingConstraint.constant = 20
                 self.bottomViewOverlay.alpha = 1
                 self.leftArrowBarView.alpha = 0
                 self.rightArrowBarView.alpha = 0
@@ -180,7 +263,10 @@ class GroupViewController: UIViewController {
                 self.closedEventsLabel.transform = .identity
                 self.openEventsLabel.transform = CGAffineTransform(scaleX: 0.8, y: 0.8).concatenating(CGAffineTransform(translationX: 0, y: 0))
 				
+				self.eventCountViewTrailingConstraint.priority = UILayoutPriority(rawValue: 250)
+				self.eventCountViewLeadingConstraint.priority = UILayoutPriority(rawValue: 999)
                 self.eventCountViewLeadingConstraint.constant = -20
+                self.eventCountViewTrailingConstraint.constant = 87
                 self.bottomViewOverlay.alpha = 0
                 self.leftArrowBarView.alpha = 1
                 self.rightArrowBarView.alpha = 1
@@ -208,10 +294,17 @@ class GroupViewController: UIViewController {
             switch self.currentState {
             case .open:
                 self.bottomViewBottomConstraint.constant = 100
-                self.eventCountViewLeadingConstraint.constant = 12
+                self.eventCountViewTrailingConstraint.priority = UILayoutPriority(rawValue: 999)
+				self.eventCountViewLeadingConstraint.priority = UILayoutPriority(rawValue: 250)
+                self.eventCountViewTrailingConstraint.constant = 20
+                self.calendarViewTopConstraint.constant = -50
             case .closed:
 				self.bottomViewBottomConstraint.constant = self.view.safeAreaLayoutGuide.layoutFrame.height - self.bottomOffset
+                self.eventCountViewTrailingConstraint.priority = UILayoutPriority(rawValue: 250)
+				self.eventCountViewLeadingConstraint.priority = UILayoutPriority(rawValue: 999)
                 self.eventCountViewLeadingConstraint.constant = -20
+                self.eventCountViewTrailingConstraint.constant = 87
+                self.calendarViewTopConstraint.constant = 30
             }
 			
             self.runningAnimators.removeAll()
@@ -285,6 +378,43 @@ class GroupViewController: UIViewController {
 			()
 		}
 	}
+	
+	func updateEvents() {
+		let dateString = self.formatter.string(from: calendarView.selectedDate!)
+		
+		filteredEvents = events.filter({ $0.startDate.contains(dateString) }).map({ return $0 })
+		
+		eventCountButton.setTitle(filteredEvents.count.description, for: .normal)
+		
+		let timingFunction = CAMediaTimingFunction(controlPoints: 5/6, 0.2, 2/6, 0.9)
+	
+		CATransaction.begin()
+		CATransaction.setAnimationTimingFunction(timingFunction)
+		
+		UIView.animate(withDuration: 0.6) {
+			self.tableViewBottomConstraint.constant = self.tableView.frame.height
+			
+			self.view.layoutIfNeeded()
+		}
+		
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.8, execute: {
+			self.tableView.reloadData()
+			
+			UIView.animate(withDuration: 0.5) {
+				self.tableViewBottomConstraint.constant = 0
+				
+				if self.filteredEvents.count <= 0 {
+					self.noEventsLabel.alpha = 1
+				} else {
+					self.noEventsLabel.alpha = 0
+				}
+				
+				self.view.layoutIfNeeded()
+			}
+		})
+		
+		CATransaction.commit()
+	}
 
 	@IBAction func close(_ sender: UIButton) {
 		self.dismiss(animated: true, completion: nil)
@@ -300,6 +430,9 @@ class GroupViewController: UIViewController {
 		followButton.backgroundColor = tintColor
 	}
 	
+	@IBAction func today(_ sender: Any) {
+	
+	}
 }
 
 class InstantPanGestureRecognizer: UIPanGestureRecognizer {
@@ -361,4 +494,53 @@ extension GroupViewController: UICollectionViewDataSource, UICollectionViewDeleg
 		
         return cell!
     }
+}
+
+extension GroupViewController: FSCalendarDelegate, FSCalendarDataSource {
+	func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+		let dateString = self.formatter.string(from: date)
+		
+		let dates = events.map { (date) -> String in
+			let endIndex = date.startDate.index(date.startDate.endIndex, offsetBy: -6)
+			let truncated = date.startDate.substring(to: endIndex)
+			return truncated
+		}
+		
+		if dates.contains(dateString) {
+			return 1
+		}
+
+		return 0
+	}
+	
+	func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+		updateEvents()
+	}
+}
+
+extension GroupViewController: UITableViewDataSource, UITableViewDelegate {
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return 110
+	}
+
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return filteredEvents.count
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: "EventTableViewCell") as? EventTableViewCell
+		
+		self.timeFormatter.dateFormat = "HH:mm"
+		
+		cell?.cardView.backgroundColor = config.secondaryColor
+		cell?.titleLabel.text = self.filteredEvents[indexPath.row].name
+		cell?.startTimeLabel.text = "\(timeFormatter.string(from: dateFormatter.date(from: self.filteredEvents[indexPath.row].startDate) ?? Date()))"
+		cell?.endTimeLabel.text = "\(timeFormatter.string(from: dateFormatter.date(from: self.filteredEvents[indexPath.row].startDate)?.addingTimeInterval(self.filteredEvents[indexPath.row].duration as TimeInterval) ?? Date()))"
+		
+		return cell!
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
+	}
 }

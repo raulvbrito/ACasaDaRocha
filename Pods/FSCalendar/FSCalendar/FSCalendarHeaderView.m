@@ -156,9 +156,11 @@
     FSCalendarAppearance *appearance = self.calendar.appearance;
     cell.titleLabel.font = appearance.headerTitleFont;
     cell.titleLabel.textColor = appearance.headerTitleColor;
+	cell.titleLabel.textAlignment = NSTextAlignmentLeft;
     _calendar.formatter.dateFormat = appearance.headerDateFormat;
     BOOL usesUpperCase = (appearance.caseOptions & 15) == FSCalendarCaseOptionsHeaderUsesUpperCase;
     NSString *text = nil;
+    NSMutableAttributedString *attrString = nil;
     switch (self.calendar.transitionCoordinator.representingScope) {
         case FSCalendarScopeMonth: {
             if (_scrollDirection == UICollectionViewScrollDirectionHorizontal) {
@@ -182,6 +184,11 @@
                 NSDate *firstPage = [self.calendar.gregorian fs_middleDayOfWeek:self.calendar.minimumDate];
                 NSDate *date = [self.calendar.gregorian dateByAddingUnit:NSCalendarUnitWeekOfYear value:indexPath.item-1 toDate:firstPage options:0];
                 text = [_calendar.formatter stringFromDate:date];
+				
+                attrString = [[NSMutableAttributedString alloc] initWithString:text];
+				
+                NSRange range = NSMakeRange([attrString length]-3, 3);
+                [attrString addAttribute:NSForegroundColorAttributeName value:[UIColor grayColor] range:range];
             }
             break;
         }
@@ -189,8 +196,8 @@
             break;
         }
     }
-    text = usesUpperCase ? text.uppercaseString : text;
-    cell.titleLabel.text = text;
+    text = usesUpperCase ? text.capitalizedString : text;
+    cell.titleLabel.attributedText = attrString;
     [cell setNeedsLayout];
 }
 
@@ -229,8 +236,10 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    
-    self.titleLabel.frame = self.contentView.bounds;
+	
+    CGRect customBounds = self.contentView.bounds;
+    customBounds.origin.x = -(UIScreen.mainScreen.bounds.size.width/5);
+    self.titleLabel.frame = customBounds;
     
     if (self.header.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
         CGFloat position = [self.contentView convertPoint:CGPointMake(CGRectGetMidX(self.contentView.bounds), CGRectGetMidY(self.contentView.bounds)) toView:self.header].x;

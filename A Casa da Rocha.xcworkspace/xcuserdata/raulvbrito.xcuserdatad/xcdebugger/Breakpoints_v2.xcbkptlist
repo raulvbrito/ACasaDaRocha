@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "A Casa da Rocha/Supporting Files/AppDelegate.swift"
-            timestampString = "570182629.711629"
+            timestampString = "570595461.934479"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"
@@ -22,11 +22,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "A Casa da Rocha/Sources/Requests/TracksService.swift"
-            timestampString = "569884461.547359"
+            timestampString = "570592690.6317329"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "136"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "A Casa da Rocha/Sources/View Controllers/HomeViewController.swift"
-            timestampString = "570483648.188601"
+            timestampString = "570588686.283188"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "A Casa da Rocha/Sources/View Controllers/HomeViewController.swift"
-            timestampString = "570483648.188692"
+            timestampString = "570588686.283259"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "133"
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "A Casa da Rocha/Sources/Requests/TracksService.swift"
-            timestampString = "569884461.549913"
+            timestampString = "570592690.631828"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "110"
@@ -86,11 +86,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "A Casa da Rocha/Sources/View Controllers/HomeViewController.swift"
-            timestampString = "570483648.1887749"
+            timestampString = "570588686.2833281"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "103"
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "A Casa da Rocha/Supporting Files/AppDelegate.swift"
-            timestampString = "570182629.711832"
+            timestampString = "570595461.934629"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "74"
@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Next Worship Widget/TodayViewController.swift"
-            timestampString = "569894169.98597"
+            timestampString = "570587732.492969"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "178"
@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Next Worship Widget/TodayViewController.swift"
-            timestampString = "569894169.98604"
+            timestampString = "570587732.493035"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "118"
@@ -154,7 +154,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "A Casa da Rocha/Sources/View Controllers/HomeViewController.swift"
-            timestampString = "570483648.188885"
+            timestampString = "570588686.283415"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "207"
@@ -170,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "A Casa da Rocha/Sources/View Controllers/HomeViewController.swift"
-            timestampString = "570483648.188948"
+            timestampString = "570588686.2834671"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "171"
@@ -182,11 +182,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "A Casa da Rocha/Supporting Files/AppDelegate.swift"
-            timestampString = "570182629.71196"
+            timestampString = "570595461.934733"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "99"
@@ -202,7 +202,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "A Casa da Rocha/Sources/View Controllers/HomeViewController.swift"
-            timestampString = "570483648.1890171"
+            timestampString = "570588686.283538"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "176"
@@ -218,7 +218,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "A Casa da Rocha/Sources/View Controllers/HomeViewController.swift"
-            timestampString = "570483648.189067"
+            timestampString = "570588686.283585"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "144"
@@ -234,7 +234,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "A Casa da Rocha/Sources/View Controllers/HomeViewController.swift"
-            timestampString = "570483648.189115"
+            timestampString = "570588686.283632"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "306"
@@ -250,7 +250,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "A Casa da Rocha/Sources/View Controllers/HomeViewController.swift"
-            timestampString = "570483648.189162"
+            timestampString = "570588686.283677"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "309"
@@ -266,7 +266,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "A Casa da Rocha/Sources/View Controllers/HomeViewController.swift"
-            timestampString = "570483648.189209"
+            timestampString = "570588686.283724"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "311"
@@ -278,49 +278,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "A Casa da Rocha/Sources/View Controllers/HomeViewController.swift"
-            timestampString = "570483648.189276"
+            timestampString = "570588686.28377"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "174"
             endingLineNumber = "174"
             landmarkName = "listTracks(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Optional&lt;__C.NSError&gt;, Swift.Array&lt;A_Casa_da_Rocha.Track&gt;) -&gt; () in A_Casa_da_Rocha.HomeViewController.listTracks(Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
-                  moduleName = "A Casa da Rocha"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/raulvbrito/Projects/iOS/ACasaDaRocha/A%20Casa%20da%20Rocha/Sources/View%20Controllers/HomeViewController.swift"
-                  timestampString = "570390323.921412"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "174"
-                  endingLineNumber = "174"
-                  offsetFromSymbolStart = "674">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Optional&lt;__C.NSError&gt;, Swift.Array&lt;A_Casa_da_Rocha.Track&gt;) -&gt; () in A_Casa_da_Rocha.HomeViewController.listTracks(Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
-                  moduleName = "A Casa da Rocha"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/raulvbrito/Projects/iOS/ACasaDaRocha/A%20Casa%20da%20Rocha/Sources/View%20Controllers/HomeViewController.swift"
-                  timestampString = "570390323.9243931"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "174"
-                  endingLineNumber = "174"
-                  offsetFromSymbolStart = "698">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -330,7 +298,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "A Casa da Rocha/Sources/View Controllers/HomeViewController.swift"
-            timestampString = "570483648.189322"
+            timestampString = "570588686.283815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "202"
@@ -346,7 +314,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "A Casa da Rocha/Sources/View Controllers/HomeViewController.swift"
-            timestampString = "570483648.1893671"
+            timestampString = "570588686.283859"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "216"
@@ -358,63 +326,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "A Casa da Rocha/Sources/View Controllers/GroupViewController.swift"
-            timestampString = "570483648.189428"
+            timestampString = "570595461.934888"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
-            landmarkName = "animateTransitionIfNeeded(to:duration:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "A Casa da Rocha/Sources/View Controllers/GroupViewController.swift"
-            timestampString = "570483648.1895061"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
-            landmarkName = "animateTransitionIfNeeded(to:duration:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "A Casa da Rocha/Sources/View Controllers/GroupViewController.swift"
-            timestampString = "570483648.189598"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
-            landmarkName = "animateTransitionIfNeeded(to:duration:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "A Casa da Rocha/Sources/View Controllers/GroupViewController.swift"
-            timestampString = "570483648.189669"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
             landmarkName = "animateTransitionIfNeeded(to:duration:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -426,12 +346,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "A Casa da Rocha/Sources/View Controllers/GroupViewController.swift"
-            timestampString = "570483648.189761"
+            timestampString = "570595461.934993"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "viewDidAppear(_:)"
+            startingLineNumber = "295"
+            endingLineNumber = "295"
+            landmarkName = "animateTransitionIfNeeded(to:duration:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "A Casa da Rocha/Sources/View Controllers/GroupViewController.swift"
+            timestampString = "570595461.935094"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
+            landmarkName = "animateTransitionIfNeeded(to:duration:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "A Casa da Rocha/Sources/View Controllers/GroupViewController.swift"
+            timestampString = "570595461.935192"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "301"
+            endingLineNumber = "301"
+            landmarkName = "animateTransitionIfNeeded(to:duration:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -441,13 +393,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "A Casa da Rocha/Sources/View Controllers/GroupViewController.swift"
-            timestampString = "570483648.189834"
+            filePath = "Pods/FSCalendar/FSCalendar/FSCalendarStickyHeader.m"
+            timestampString = "570568065.2722321"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "254"
-            endingLineNumber = "254"
-            landmarkName = "bottomViewPanned(recognizer:)"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "-setMonth:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -457,29 +409,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "A Casa da Rocha/Sources/View Controllers/GroupViewController.swift"
-            timestampString = "570483648.189923"
+            filePath = "Pods/FSCalendar/FSCalendar/FSCalendarStickyHeader.m"
+            timestampString = "570568065.272319"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "261"
-            endingLineNumber = "261"
-            landmarkName = "bottomViewPanned(recognizer:)"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "-layoutSubviews"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "A Casa da Rocha/Sources/View Controllers/GroupViewController.swift"
-            timestampString = "570483648.1899951"
+            filePath = "Pods/FSCalendar/FSCalendar/FSCalendarHeaderView.m"
+            timestampString = "570568065.272397"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
-            landmarkName = "bottomViewPanned(recognizer:)"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
+            landmarkName = "-layoutSubviews"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

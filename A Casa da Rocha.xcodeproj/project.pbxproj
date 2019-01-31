@@ -19,6 +19,10 @@
 		41617EBF21F78FD000E8EED5 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41617EBE21F78FD000E8EED5 /* Event.swift */; };
 		41617EC121F7955B00E8EED5 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41617EBE21F78FD000E8EED5 /* Event.swift */; };
 		41617EC321F795D000E8EED5 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41617EAD21F6957100E8EED5 /* TodayViewController.swift */; };
+		4165CDF22202329D00C453D6 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4165CDF12202329D00C453D6 /* EventTableViewCell.swift */; };
+		4165CDF32202329D00C453D6 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4165CDF12202329D00C453D6 /* EventTableViewCell.swift */; };
+		4165CDF522027C9100C453D6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4165CDF422027C9100C453D6 /* Group.swift */; };
+		4165CDF622027C9100C453D6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4165CDF422027C9100C453D6 /* Group.swift */; };
 		416AFEDE21B85E1C00F9E8B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416AFEDD21B85E1C00F9E8B6 /* AppDelegate.swift */; };
 		416AFEE021B85E1C00F9E8B6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416AFEDF21B85E1C00F9E8B6 /* HomeViewController.swift */; };
 		416AFEE321B85E1C00F9E8B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 416AFEE121B85E1C00F9E8B6 /* Main.storyboard */; };
@@ -126,6 +130,8 @@
 		41617EB221F6957100E8EED5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41617EBB21F69B1A00E8EED5 /* WidgetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCollectionViewCell.swift; sourceTree = "<group>"; };
 		41617EBE21F78FD000E8EED5 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		4165CDF12202329D00C453D6 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		4165CDF422027C9100C453D6 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		416AFEDA21B85E1C00F9E8B6 /* A Casa da Rocha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "A Casa da Rocha.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		416AFEDD21B85E1C00F9E8B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		416AFEDF21B85E1C00F9E8B6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -354,6 +360,7 @@
 			isa = PBXGroup;
 			children = (
 				41617EBE21F78FD000E8EED5 /* Event.swift */,
+				4165CDF422027C9100C453D6 /* Group.swift */,
 				417C0D7B21E544DA004162B8 /* Track.swift */,
 			);
 			path = Models;
@@ -386,6 +393,7 @@
 		416AFF1521B85EE700F9E8B6 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				4165CDF12202329D00C453D6 /* EventTableViewCell.swift */,
 				41C2D5DE21F12E0E00FA06F4 /* GroupCollectionViewCell.swift */,
 				41A345F321F93DCE006C40AF /* GroupGalleryCollectionViewCell.swift */,
 				41C2D5E021F12FD600FA06F4 /* GroupsTableViewCell.swift */,
@@ -781,8 +789,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4165CDF32202329D00C453D6 /* EventTableViewCell.swift in Sources */,
 				41617EBD21F69BE000E8EED5 /* WidgetCollectionViewCell.swift in Sources */,
 				41617EC121F7955B00E8EED5 /* Event.swift in Sources */,
+				4165CDF622027C9100C453D6 /* Group.swift in Sources */,
 				41617EAE21F6957100E8EED5 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -799,6 +809,7 @@
 				41617EA421F6114500E8EED5 /* GroupViewController.swift in Sources */,
 				41C2D5E121F12FD600FA06F4 /* GroupsTableViewCell.swift in Sources */,
 				418126A921EFD46200BF27B7 /* SplashScreenViewController.swift in Sources */,
+				4165CDF22202329D00C453D6 /* EventTableViewCell.swift in Sources */,
 				416AFEE621B85E1C00F9E8B6 /* A_Casa_da_Rocha.xcdatamodeld in Sources */,
 				41617EBC21F69B1A00E8EED5 /* WidgetCollectionViewCell.swift in Sources */,
 				41C7396621BF35010069C80C /* BaseService.swift in Sources */,
@@ -809,6 +820,7 @@
 				41C88B3821ECF0C00086AA5B /* NewsViewController.swift in Sources */,
 				41F35E3121E7A5B900713777 /* TrackTableViewCell.swift in Sources */,
 				41C88B3621E8F8320086AA5B /* Utils.swift in Sources */,
+				4165CDF522027C9100C453D6 /* Group.swift in Sources */,
 				41C2D5DF21F12E0E00FA06F4 /* GroupCollectionViewCell.swift in Sources */,
 				416AFF1921B87EB000F9E8B6 /* IntroTableViewCell.swift in Sources */,
 				41C7396321BF28A40069C80C /* SectionTitleTableViewCell.swift in Sources */,
