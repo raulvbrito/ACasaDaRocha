@@ -29,6 +29,10 @@ class BaseViewController: UIViewController {
 		self.navigationController?.navigationBar.isTranslucent = false
 		self.navigationController?.view.backgroundColor = .black
 		
+		self.tabBarController?.tabBar.layer.borderWidth = 0.50
+		self.tabBarController?.tabBar.layer.borderColor = UIColor.clear.cgColor
+		self.tabBarController?.tabBar.clipsToBounds = true
+		
 		definesPresentationContext = true
 		
 		if #available(iOS 11.0, *) {

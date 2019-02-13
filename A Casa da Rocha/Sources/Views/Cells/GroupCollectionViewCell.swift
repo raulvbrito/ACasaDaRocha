@@ -11,13 +11,14 @@ import UIKit
 class GroupCollectionViewCell: UICollectionViewCell {
     
 	@IBOutlet var cardView: UIView!
+	@IBOutlet var roundedLogoBackgroundView: UIView!
 	@IBOutlet var roundedLogoView: UIView!
 	@IBOutlet var roundedLogoViewTrailingConstraint: NSLayoutConstraint!
 	@IBOutlet var roundedLogoViewBottomConstraint: NSLayoutConstraint!
 	@IBOutlet var logoShadowView: UIView!
 	@IBOutlet var hashtagImageView: UIImageView!
 	@IBOutlet var logoImageView: UIImageView!
-	@IBOutlet var logoImageViewCenterYConstraint: NSLayoutConstraint!
+	@IBOutlet var logoImageViewTopConstraint: NSLayoutConstraint!
 	@IBOutlet var ageRangeLabel: UILabel!
 	@IBOutlet var eventNameLabel: UILabel!
 	@IBOutlet var nextEventLabel: UILabel!

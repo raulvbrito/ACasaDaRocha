@@ -18,9 +18,17 @@ class SectionTitleTableViewCell: UITableViewCell {
         super.awakeFromNib()
 		
 		UIView.animate(withDuration: 1, delay: 0, options: .curveEaseInOut, animations: {
-			self.titleLabel.alpha = 1
-			self.buttonBackgroundView.alpha = 1
-			self.seeAllButton.alpha = 1
+			if let _ = self.titleLabel {
+				self.titleLabel.alpha = 1
+			}
+			
+			if let _ = self.buttonBackgroundView {
+				self.buttonBackgroundView.alpha = 1
+			}
+			
+			if let _ = self.seeAllButton {
+				self.seeAllButton.alpha = 1
+			}
 		}, completion: nil)
     }
 

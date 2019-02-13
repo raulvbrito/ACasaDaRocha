@@ -25,7 +25,7 @@ extension BottomViewState {
     }
 }
 
-class GroupViewController: UIViewController {
+final class GroupViewController: UIViewController {
 
 	@IBOutlet var backgroundView: UIView!
 	@IBOutlet var collectionView: UICollectionView!
@@ -66,7 +66,13 @@ class GroupViewController: UIViewController {
 	
 	var config: Group!
 	
+	var backgroundViewHeroId: String!
+	
+	var logoImageViewHeroId: String!
+	
 	var transitionAnimator = UIViewPropertyAnimator()
+	
+	var showingTable = false
 	
 	private let bottomViewOffset: CGFloat = 621
 	
@@ -93,8 +99,11 @@ class GroupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		backgroundView.hero.modifiers = [.duration(0.3), .timingFunction(.easeInOut), .useScaleBasedSizeChange, .arc(intensity: 1)]
-		logoImageView.hero.modifiers = [.duration(0.4), .timingFunction(.easeInOut), .useScaleBasedSizeChange, .arc(intensity: 1)]
+		backgroundView.hero.id = backgroundViewHeroId
+		logoImageView.hero.id = logoImageViewHeroId
+		
+		backgroundView.hero.modifiers = [.duration(0.35), .timingFunction(.easeInOut), .useScaleBasedSizeChange, .arc(intensity: 1)]
+		logoImageView.hero.modifiers = [.duration(0.45), .timingFunction(.easeInOut), .useScaleBasedSizeChange, .arc(intensity: 1)]
 
 		bottomView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
 		bottomView.translatesAutoresizingMaskIntoConstraints = false
@@ -121,6 +130,16 @@ class GroupViewController: UIViewController {
 		colorConfig()
 		calendarSetup()
     }
+	
+    override func viewWillAppear(_ animated: Bool) {
+//    	DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//			UIView.animate(withDuration: 0.3, delay: 2, options: .curveEaseInOut, animations: {
+//				self.backgroundView.backgroundColor = self.config.mainColor
+//
+//				self.view.layoutIfNeeded()
+//			}, completion: nil)
+//		}
+	}
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(true)
@@ -151,6 +170,12 @@ class GroupViewController: UIViewController {
 		CATransaction.commit()
 	}
 	
+	override func viewWillDisappear(_ animated: Bool) {
+		UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseInOut, animations: {
+//			self.backgroundView?.backgroundColor = .black
+		}, completion: nil)
+	}
+	
 	func calendarSetup() {
 		let event = [
         	"id": 0,
@@ -169,7 +194,7 @@ class GroupViewController: UIViewController {
         	"description": "Culto dos jovens na Casa da Rocha",
         	"location": "A Casa da Rocha - Independência",
         	"image": "skup_logo_branco",
-        	"start_date": "2019-01-27 19:00",
+        	"start_date": "2019-02-09 19:00",
         	"duration": 7200.0,
         	"added": false
 			] as [String : Any]
@@ -382,38 +407,55 @@ class GroupViewController: UIViewController {
 	func updateEvents() {
 		let dateString = self.formatter.string(from: calendarView.selectedDate!)
 		
+		showingTable = false
+		
 		filteredEvents = events.filter({ $0.startDate.contains(dateString) }).map({ return $0 })
 		
 		eventCountButton.setTitle(filteredEvents.count.description, for: .normal)
 		
-		let timingFunction = CAMediaTimingFunction(controlPoints: 5/6, 0.2, 2/6, 0.9)
-	
-		CATransaction.begin()
-		CATransaction.setAnimationTimingFunction(timingFunction)
+		var cells = self.tableView.visibleCells as! Array<EventTableViewCell>
 		
-		UIView.animate(withDuration: 0.6) {
-			self.tableViewBottomConstraint.constant = self.tableView.frame.height
+		if cells.count <= 0 && filteredEvents.count > 0 {
+			tableView.reloadData()
 			
-			self.view.layoutIfNeeded()
+			cells = self.tableView.visibleCells as! Array<EventTableViewCell>
 		}
 		
-		DispatchQueue.main.asyncAfter(deadline: .now() + 0.8, execute: {
+		for (index, cell) in cells.reversed().enumerated() {
+			let originalTransform = cell.cardView.transform
+			let scaledTransform = originalTransform.scaledBy(x: 0.5, y: 0.5)
+
+			UIView.animate(withDuration: 0.25, delay: Double(index)*0.05, options: .curveEaseInOut, animations: {
+				cell.cardView.alpha = 0
+				cell.shadowView.alpha = 0
+				cell.cardView.transform = scaledTransform
+			}, completion: nil)
+		}
+		
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.6, execute: {
 			self.tableView.reloadData()
 			
-			UIView.animate(withDuration: 0.5) {
-				self.tableViewBottomConstraint.constant = 0
-				
+			UIView.animate(withDuration: 0.2, delay: 0.2, options: .curveEaseInOut, animations: {
 				if self.filteredEvents.count <= 0 {
 					self.noEventsLabel.alpha = 1
 				} else {
 					self.noEventsLabel.alpha = 0
 				}
-				
-				self.view.layoutIfNeeded()
+			}) { (Bool) in
+				for (index, cell) in cells.enumerated() {
+					UIView.animate(withDuration: 0.3, delay: Double(index)*0.05, options: .curveEaseInOut, animations: {
+						cell.cardView.alpha = 1
+						cell.cardView.transform = .identity
+					}) { (Bool) in
+//						UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
+//							cell.shadowView.alpha = 1
+//						}, completion: nil)
+						
+						self.showingTable = true
+					}
+				}
 			}
 		})
-		
-		CATransaction.commit()
 	}
 
 	@IBAction func close(_ sender: UIButton) {
@@ -483,10 +525,9 @@ extension GroupViewController: UICollectionViewDataSource, UICollectionViewDeleg
 		cell?.shadowView.layer.masksToBounds = false
 		cell?.shadowView.layer.shadowColor = UIColor.black.cgColor
 		cell?.shadowView.layer.shadowOpacity = 0.6
-		cell?.shadowView.layer.shadowOffset = CGSize(width: 0, height: 10)
-		cell?.shadowView.layer.zPosition = 0
-		
-		cell?.shadowView.layer.shadowRadius = 10
+		cell?.shadowView.layer.shadowOffset = CGSize(width: 0, height: 0)
+		cell?.shadowView.layer.cornerRadius = 20.0
+		cell?.shadowView.layer.shadowRadius = 12.0
 
 		cell?.shadowView.layer.shadowPath = UIBezierPath(roundedRect: (cell?.shadowView.bounds)!, cornerRadius: cell?.galleryImageView.layer.cornerRadius ?? 0).cgPath
 		cell?.shadowView.layer.shouldRasterize = true
@@ -532,8 +573,29 @@ extension GroupViewController: UITableViewDataSource, UITableViewDelegate {
 		
 		self.timeFormatter.dateFormat = "HH:mm"
 		
-		cell?.cardView.backgroundColor = config.secondaryColor
+		cell?.setNeedsLayout()
+		cell?.layoutIfNeeded()
+		
+		cell?.shadowView.alpha = 0
+		cell?.shadowView.layer.masksToBounds = false
+		cell?.shadowView.layer.shadowColor = UIColor.black.cgColor
+		cell?.shadowView.layer.shadowOpacity = 0.6
+		cell?.shadowView.layer.shadowOffset = CGSize(width: 0, height: 2)
+		cell?.shadowView.layer.cornerRadius = 12
+		cell?.shadowView.layer.shadowRadius = 10
+
+		cell?.shadowView.layer.shadowPath = UIBezierPath(roundedRect: (cell?.shadowView.bounds)!, cornerRadius: 0).cgPath
+		cell?.shadowView.layer.shouldRasterize = true
+		cell?.shadowView.layer.rasterizationScale = UIScreen.main.scale
+		
+		
+		if !showingTable {
+			cell?.cardView.alpha = 0
+		}
+		
+		cell?.cardView.backgroundColor = config.mainColor
 		cell?.titleLabel.text = self.filteredEvents[indexPath.row].name
+		cell?.timeBarView.backgroundColor = config.secondaryColor
 		cell?.startTimeLabel.text = "\(timeFormatter.string(from: dateFormatter.date(from: self.filteredEvents[indexPath.row].startDate) ?? Date()))"
 		cell?.endTimeLabel.text = "\(timeFormatter.string(from: dateFormatter.date(from: self.filteredEvents[indexPath.row].startDate)?.addingTimeInterval(self.filteredEvents[indexPath.row].duration as TimeInterval) ?? Date()))"
 		

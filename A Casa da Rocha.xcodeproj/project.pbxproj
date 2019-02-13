@@ -69,6 +69,7 @@
 		41C88B3A21ECF1400086AA5B /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C88B3921ECF1400086AA5B /* PlacesViewController.swift */; };
 		41C88B3C21ECF1670086AA5B /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C88B3B21ECF1670086AA5B /* SupportViewController.swift */; };
 		41C88B3E21ECF19C0086AA5B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C88B3D21ECF19C0086AA5B /* BaseViewController.swift */; };
+		41E6974A22067ACA00F3D9C1 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6974922067ACA00F3D9C1 /* PostTableViewCell.swift */; };
 		41EB3E5421EE42AB0044F9DD /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB3E5321EE42AB0044F9DD /* PlaceTableViewCell.swift */; };
 		41EB3E5621EE482B0044F9DD /* dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 41EB3E5521EE482B0044F9DD /* dark.json */; };
 		41F35E3121E7A5B900713777 /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F35E3021E7A5B900713777 /* TrackTableViewCell.swift */; };
@@ -174,6 +175,7 @@
 		41C88B3921ECF1400086AA5B /* PlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
 		41C88B3B21ECF1670086AA5B /* SupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
 		41C88B3D21ECF19C0086AA5B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		41E6974922067ACA00F3D9C1 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		41EB3E5321EE42AB0044F9DD /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
 		41EB3E5521EE482B0044F9DD /* dark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dark.json; sourceTree = "<group>"; };
 		41F35E3021E7A5B900713777 /* TrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 				41C2D5E021F12FD600FA06F4 /* GroupsTableViewCell.swift */,
 				416AFF1821B87EB000F9E8B6 /* IntroTableViewCell.swift */,
 				41EB3E5321EE42AB0044F9DD /* PlaceTableViewCell.swift */,
+				41E6974922067ACA00F3D9C1 /* PostTableViewCell.swift */,
 				41C7396221BF28A40069C80C /* SectionTitleTableViewCell.swift */,
 				41F35E3021E7A5B900713777 /* TrackTableViewCell.swift */,
 				41617EBB21F69B1A00E8EED5 /* WidgetCollectionViewCell.swift */,
@@ -827,6 +830,7 @@
 				416AFEDE21B85E1C00F9E8B6 /* AppDelegate.swift in Sources */,
 				41C7396821BF36530069C80C /* TracksService.swift in Sources */,
 				41EB3E5421EE42AB0044F9DD /* PlaceTableViewCell.swift in Sources */,
+				41E6974A22067ACA00F3D9C1 /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

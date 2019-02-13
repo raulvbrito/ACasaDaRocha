@@ -12,24 +12,34 @@ class NewsViewController: BaseViewController {
 
 	@IBOutlet var tableView: UITableView!
 	
+	var config: Group!
+	
+	var configData: [String : Any]! = [:]
+	
 	var selectedCell: GroupCollectionViewCell?
 	
-	var config: Group!
+	var collectionViewTableViewCell: GroupsTableViewCell?
 	
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 	
+    override func viewWillAppear(_ animated: Bool) {
+		self.selectedCell?.hashtagImageView.alpha = 1
+	}
+	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if let groupViewController = segue.destination as? GroupViewController {
 			print(self.config)
 			
-			let configData = [
+			configData = [
 				"logo": self.selectedCell?.logoImageView.image ?? UIImage(),
 				"main_color": self.selectedCell?.roundedLogoView.backgroundColor ?? .black,
 				"secondary_color": self.selectedCell?.cardView.backgroundColor ?? .white
 			] as [String : Any]
 		
+			groupViewController.backgroundViewHeroId = self.selectedCell?.roundedLogoView.hero.id
+			groupViewController.logoImageViewHeroId = self.selectedCell?.logoImageView.hero.id
 			groupViewController.config = Group(configData)
 		}
 	}
@@ -42,23 +52,50 @@ class NewsViewController: BaseViewController {
 extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
 	
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
 	
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GroupsTableViewCell", for: indexPath) as? GroupsTableViewCell
+    	switch indexPath.row {
+			case 0:
+				let cell = tableView.dequeueReusableCell(withIdentifier: "GroupsTableViewCell", for: indexPath) as? GroupsTableViewCell
 		
-        cell?.collectionView.tag = indexPath.item
-		
-        cell?.collectionView.hero.modifiers = [.cascade]
-		
-        cell?.collectionView.reloadData()
-		
-        return cell!
+				cell?.collectionView.tag = indexPath.item
+				
+				cell?.collectionView.hero.modifiers = [.cascade]
+				
+				cell?.collectionView.reloadData()
+				
+				cell?.selectionStyle = .none
+				cell?.selectedBackgroundView = UIView()
+				
+				return cell!
+			case 1:
+				let cell = tableView.dequeueReusableCell(withIdentifier: "SectionTitleTableViewCell") as? SectionTitleTableViewCell
+			
+				cell?.selectionStyle = .none
+				cell?.selectedBackgroundView = UIView()
+				
+				return cell!
+			default:
+				let cell = tableView.dequeueReusableCell(withIdentifier: "SectionTitleTableViewCell") as? SectionTitleTableViewCell
+			
+				cell?.selectionStyle = .none
+				cell?.selectedBackgroundView = UIView()
+				
+				return cell!
+		}
     }
 	
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 230
+    	switch indexPath.row {
+			case 0:
+        		return 230
+			case 1:
+				return 30
+			default:
+				return 45
+		}
     }
 	
 }
@@ -74,16 +111,16 @@ extension NewsViewController: UICollectionViewDataSource, UICollectionViewDelega
         let w = scrollView.bounds.size.width
         let currentPage = Int(ceil(x/w))
 		
-		let tableViewCell = tableView.cellForRow(at: IndexPath.init(row: 0, section: 0)) as! GroupsTableViewCell
+		collectionViewTableViewCell = tableView.cellForRow(at: IndexPath.init(row: 0, section: 0)) as? GroupsTableViewCell
 		
-		for pageBullet in tableViewCell.stackView.arrangedSubviews {
+		for pageBullet in (self.collectionViewTableViewCell?.stackView.arrangedSubviews)! {
 			UIView.animate(withDuration: 0.3) {
 				pageBullet.alpha = 0.3
 			}
 		}
 		
 		UIView.animate(withDuration: 0.3) {
-			tableViewCell.stackView.arrangedSubviews[currentPage].alpha = 1
+			self.collectionViewTableViewCell?.stackView.arrangedSubviews[currentPage].alpha = 1
 		}
 
 	}
@@ -100,27 +137,39 @@ extension NewsViewController: UICollectionViewDataSource, UICollectionViewDelega
         switch indexPath.row {
         	case 0:
 				cell?.cardView.backgroundColor = UIColor(red: 246/255, green: 36/255, blue: 0/255, alpha: 1) //UIColor(red: 21/255, green: 72/255, blue: 144/255, alpha: 1)
-				cell?.roundedLogoView.backgroundColor = UIColor(red: 17/255, green: 26/255, blue: 40/255, alpha: 1)
+				cell?.roundedLogoBackgroundView.backgroundColor = UIColor(red: 17/255, green: 26/255, blue: 40/255, alpha: 1)
+				cell?.roundedLogoView.backgroundColor = cell?.roundedLogoBackgroundView.backgroundColor
 				cell?.ageRangeLabel.text = "12 - 17"
 				cell?.nextEventLabel.textColor = UIColor(red: 17/255, green: 26/255, blue: 40/255, alpha: 1)
 				cell?.eventNameLabel.text = "Encontro da Galera"
 				cell?.logoImageView.image = UIImage(named: "galera_logo_branco")
-				cell?.logoImageViewCenterYConstraint.constant = 0
+				cell?.logoImageViewTopConstraint.constant = 15
+				cell?.hashtagImageView.alpha = 1
 				cell?.hashtagImageView.isHidden = false
+				cell?.roundedLogoView.hero.id = "galeraView"
+				cell?.logoImageView.hero.id = "galeraLogo"
 			case 1:
 				cell?.cardView.backgroundColor = UIColor(red: 0/255, green: 154/255, blue: 178/255, alpha: 1)
-				cell?.roundedLogoView.backgroundColor = UIColor(red: 24/255, green: 0/255, blue: 38/255, alpha: 1)
+				cell?.roundedLogoBackgroundView.backgroundColor = UIColor(red: 24/255, green: 0/255, blue: 38/255, alpha: 1)
+				cell?.roundedLogoView.backgroundColor = cell?.roundedLogoBackgroundView.backgroundColor
 				cell?.ageRangeLabel.text = "18 - 25"
 				cell?.nextEventLabel.textColor = UIColor(red: 24/255, green: 0/255, blue: 38/255, alpha: 1)
 				cell?.eventNameLabel.text = "Encontro de Jovens"
 				cell?.logoImageView.image = UIImage(named: "skup_logo_branco")
+				cell?.logoImageViewTopConstraint.constant = 0
+				cell?.roundedLogoView.hero.id = "skupView"
+				cell?.logoImageView.hero.id = "skupLogo"
 			case 2:
 				cell?.cardView.backgroundColor = UIColor(red: 38/255, green: 38/255, blue: 38/255, alpha: 1)
-				cell?.roundedLogoView.backgroundColor = UIColor(red: 17/255, green: 11/255, blue: 9/255, alpha: 1)
+				cell?.roundedLogoBackgroundView.backgroundColor = UIColor(red: 17/255, green: 11/255, blue: 9/255, alpha: 1)
+				cell?.roundedLogoView.backgroundColor = cell?.roundedLogoBackgroundView.backgroundColor
 				cell?.ageRangeLabel.text = "26 - 34"
 				cell?.nextEventLabel.textColor = UIColor(red: 79/255, green: 189/255, blue: 187/255, alpha: 1)
 				cell?.eventNameLabel.text = "Reunião do Trilha"
 				cell?.logoImageView.image = UIImage(named: "trilha_logo_branco")
+				cell?.logoImageViewTopConstraint.constant = 0
+				cell?.roundedLogoView.hero.id = "trilhaView"
+				cell?.logoImageView.hero.id = "trilhaLogo"
 			default:
 				break
 		}
@@ -149,18 +198,15 @@ extension NewsViewController: UICollectionViewDataSource, UICollectionViewDelega
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		selectedCell = collectionView.cellForItem(at: indexPath) as? GroupCollectionViewCell
+		
+		UIView.animate(withDuration: 0.2) {
+			self.selectedCell?.hashtagImageView.alpha = 0
+		}
 	
 		self.performSegue(withIdentifier: "GroupSegue", sender: nil)
 		
-//		selectedCell = collectionView.cellForItem(at: indexPath) as? GroupCollectionViewCell
-		
-//		DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
-//			print("gone up")
-//
-//			self.selectedCell?.roundedLogoViewBottomConstraint.constant = 10
-//			self.selectedCell?.roundedLogoViewTrailingConstraint.constant = 10
-//
-//			self.view.layoutIfNeeded()
-//		}
+		DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+			self.view.layoutIfNeeded()
+		}
 	}
 }

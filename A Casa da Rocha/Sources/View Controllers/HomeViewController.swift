@@ -317,12 +317,13 @@ class HomeViewController: BaseViewController, SPTSessionManagerDelegate, SPTAppR
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		if indexPath.row == 0 {
-			return 200
-		} else if indexPath.row == 1 {
-			return 45
-		} else {
-			return 180
+		switch indexPath.row {
+			case 0:
+				return 200
+			case 1:
+				return 60
+			default:
+				return 180
 		}
 	}
 

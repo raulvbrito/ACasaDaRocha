@@ -10,6 +10,7 @@ import UIKit
 
 class EventTableViewCell: UITableViewCell {
 
+	@IBOutlet var shadowView: UIView!
 	@IBOutlet var cardView: UIView!
 	@IBOutlet var titleLabel: UILabel!
 	@IBOutlet var addressLabel: UILabel!
